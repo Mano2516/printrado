@@ -273,6 +273,9 @@
   transition: 0.3s;
   font-weight: 600;
 }
+.header .navContainer .categories a.active {
+  color: rgb(237, 156, 75);
+}
 .header .navContainer .categories a:hover {
   color: rgb(237, 156, 75);
 }

@@ -89,18 +89,9 @@
     @media (max-width: 1024px) {
       display: none;
     }
-    // @media (max-width: 991px) {
-    //   width: 970px;
-    //   display: block;
-    // }
-    // @media (max-width: 768px) {
-    //   width: 750px;
-    //   display: block;
-    // }
     @media (min-width: 1025px) {
       display: block;
     }
-
     .nav {
       width: 80%;
       margin-left: auto;
@@ -209,6 +200,9 @@
         color: $text-color;
         transition: 0.3s;
         font-weight: 600;
+        &.active {
+          color: $mainColor;
+        }
         &:hover {
           color: $mainColor;
         }
@@ -266,37 +260,3 @@
     }
   }
 }
-// .search {
-//   .ant-input-outlined {
-//     width: 600px;
-//     border-radius: 35px;
-//     height: 40px;
-//     display: flex;
-
-//     @media (max-width: 1290px) {
-//       width: 450px;
-//     }
-//     @media (max-width: 1260px) {
-//       width: 350px;
-//     }
-//     @media (max-width: 1150px) {
-//       width: 250px;
-//     }
-//     &:focus {
-//       border-color: #ecebea;
-//       border-inline-start-color: #ecebea;
-//       box-shadow: 0 0 0 2px #ecebea;
-//     }
-//     &:hover {
-//       border-color: #ecebea;
-//     }
-//     &:focus-within {
-//       border-color: #ecebea;
-//       border-inline-start-color: #ecebea;
-//       box-shadow: 0 0 0 1px transparent;
-//     }
-//     .ant-input {
-//       padding-inline: 10px;
-//     }
-//   }
-// }

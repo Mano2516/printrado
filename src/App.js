@@ -1,11 +1,17 @@
+import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 function App() {
+  const [navigate, setNavigate] = useState("soft");
   return (
-    <>
-      <Header />
-    </>
+    <div style={{ minHeight: "100vh" }}>
+      <Header navigate={navigate} setNavigate={setNavigate} />
+      <Nav />
+      <Footer />
+    </div>
   );
 }
 

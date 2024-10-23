@@ -10,7 +10,7 @@ import "../css/header.css";
 import logo from "../imgs/logo.webp";
 import { Badge, Image, Input } from "antd";
 import Link from "antd/es/typography/Link";
-export default function Header() {
+export default function Header({ navigate, setNavigate }) {
   return (
     <div className="header">
       <div className="container">
@@ -71,31 +71,85 @@ export default function Header() {
           </div>
         </div>
         <div className="categories">
-          <Link href="#" className="link">
+          <Link
+            href="#"
+            className={navigate === "home" && "link active"}
+            onClick={() => {
+              setNavigate("home");
+            }}
+          >
             Home
           </Link>
-          <Link href="#" className="link">
+          <Link
+            href="#"
+            className={navigate === "soft" && "link active"}
+            onClick={() => {
+              setNavigate("soft");
+            }}
+          >
             Software Engineering
           </Link>
-          <Link href="#" className="link">
+          <Link
+            href="#"
+            className={navigate === "data" && "link active"}
+            onClick={() => {
+              setNavigate("data");
+            }}
+          >
             Data Science
           </Link>
-          <Link href="#" className="link">
+          <Link
+            href="#"
+            className={navigate === "tech" && "link active"}
+            onClick={() => {
+              setNavigate("tech");
+            }}
+          >
             Technology
           </Link>
-          <Link href="#" className="link">
+          <Link
+            href="#"
+            className={navigate === "cyber" && "link active"}
+            onClick={() => {
+              setNavigate("cyber");
+            }}
+          >
             Cybersecurity
           </Link>
-          <Link href="#" className="link">
+          <Link
+            href="#"
+            className={navigate === "management" && "link active"}
+            onClick={() => {
+              setNavigate("management");
+            }}
+          >
             Management
           </Link>
-          <Link href="#" className="link">
+          <Link
+            href="#"
+            className={navigate === "self" && "link active"}
+            onClick={() => {
+              setNavigate("self");
+            }}
+          >
             Self-Help
           </Link>
-          <Link href="#" className="link">
+          <Link
+            href="#"
+            className={navigate === "about" && "link active"}
+            onClick={() => {
+              setNavigate("about");
+            }}
+          >
             About us
           </Link>
-          <Link href="#" className="link">
+          <Link
+            href="#"
+            className={navigate === "contact" && "link active"}
+            onClick={() => {
+              setNavigate("contact");
+            }}
+          >
             Contact us
           </Link>
         </div>

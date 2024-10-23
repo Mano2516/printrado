@@ -1,0 +1,114 @@
+.footer {
+  padding: 15px 0;
+  background-color: #000;
+  max-width: 100%;
+}
+.footer .container {
+  width: 80%;
+  margin: 0 auto;
+}
+.footer .container .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+@media (max-width: 768px) {
+  .footer .container .row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 20px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+.footer .container .row .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+.footer .container .row .links .link {
+  color: rgba(255, 255, 255, 0.6);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.footer .container .row .links .link:hover {
+  color: #fff;
+}
+.footer .container .row .social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 200px;
+  gap: 7px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.footer .container .row .social .link {
+  background-color: #4d4d4d;
+  width: 40px;
+  display: block;
+  height: 40px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  font-size: 20px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.footer .container .row .social .link.face:hover {
+  background-color: rgb(72, 72, 200);
+}
+.footer .container .row .social .link.x:hover {
+  background-color: rgb(29, 161, 242);
+}
+.footer .container .row .social .link.insta:hover {
+  background-color: rgb(201, 49, 49);
+}
+.footer .container .row .social .link.youtube:hover {
+  background-color: red;
+}
+.footer .container .row .social .link.linkd:hover {
+  background-color: rgb(0, 119, 191);
+}
+.footer .container .row .social .link.whats:hover {
+  background-color: rgb(51, 169, 51);
+}
+.footer .container .row .social .link.tik:hover {
+  background-color: rgb(15, 14, 14);
+}
+.footer .container .row .social .link.tele:hover {
+  background-color: rgb(3, 155, 229);
+}
