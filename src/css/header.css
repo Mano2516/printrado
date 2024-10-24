@@ -338,3 +338,39 @@
 .header .smallContainer .smallSearch .ant-input-outlined .ant-input {
   padding-inline: 10px;
 }
+
+.drawer .ant-drawer-body .categories {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+  padding: 0 10px;
+}
+.drawer .ant-drawer-body .categories a {
+  color: #777777;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-weight: 600;
+  position: relative;
+}
+.drawer .ant-drawer-body .categories a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.105);
+}
+.drawer .ant-drawer-body .categories a.active {
+  color: rgb(237, 156, 75);
+}
+.drawer .ant-drawer-body .categories a:hover {
+  color: rgb(237, 156, 75);
+}

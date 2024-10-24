@@ -5,7 +5,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
 function App() {
-  const [navigate, setNavigate] = useState("soft");
+  const [navigate, setNavigate] = useState("home");
   return (
     <div style={{ minHeight: "100vh" }}>
       <Header navigate={navigate} setNavigate={setNavigate} />

@@ -91,7 +91,9 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="txt">&copy; 2024 Printrado. All Rights Reserved.</div>
+        <div className="txt">
+          <div>&copy; 2024 Printrado. All Rights Reserved.</div>
+        </div>
       </div>
     </div>
   );

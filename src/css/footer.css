@@ -112,3 +112,8 @@
 .footer .container .row .social .link.tele:hover {
   background-color: rgb(3, 155, 229);
 }
+.footer .container .txt {
+  color: #fff;
+  margin: 10px auto 0;
+  text-align: center;
+}
