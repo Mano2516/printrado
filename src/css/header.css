@@ -348,7 +348,6 @@
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 20px;
-  padding: 0 10px;
 }
 .drawer .ant-drawer-body .categories a {
   color: #777777;
@@ -360,7 +359,7 @@
 .drawer .ant-drawer-body .categories a::after {
   content: "";
   position: absolute;
-  bottom: -5px;
+  bottom: -10px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -373,4 +372,129 @@
 }
 .drawer .ant-drawer-body .categories a:hover {
   color: rgb(237, 156, 75);
+}
+
+.loginDrawer .form .ant-form-item {
+  margin-bottom: 5px;
+}
+.loginDrawer .form .ant-form-item .ant-form-item-label {
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: -6px;
+}
+.loginDrawer .form .ant-form-item .field {
+  border-color: #ecebea;
+  border-radius: 35px;
+  padding-inline: 15px;
+  height: 40px;
+}
+.loginDrawer .form .ant-form-item .field:last-child {
+  margin-bottom: 15px;
+}
+.loginDrawer .form .ant-form-item .field:hover {
+  border-color: #ecebea;
+}
+.loginDrawer .form .ant-form-item .field:focus {
+  border-color: #ecebea;
+  -webkit-box-shadow: 0 0 0 2px #ecebea;
+          box-shadow: 0 0 0 2px #ecebea;
+}
+.loginDrawer .form .ant-form-item .field:focus-within {
+  border-color: #ecebea;
+  -webkit-box-shadow: 0 0 0 1px transparent;
+          box-shadow: 0 0 0 1px transparent;
+}
+.loginDrawer .form .inBtn {
+  background-color: rgb(237, 156, 75);
+  color: #fff;
+  border-radius: 35px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  border: none;
+  width: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-weight: 600;
+  cursor: pointer;
+}
+.loginDrawer .form .inBtn:hover {
+  background-color: #e8831d;
+}
+.loginDrawer .forgot {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 14px;
+}
+.loginDrawer .forgot:hover {
+  text-decoration: underline;
+}
+.loginDrawer .alter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+.loginDrawer .alter .social {
+  width: 100%;
+  height: 40px;
+  border-radius: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+}
+.loginDrawer .alter .social.face {
+  background-color: #4267b2;
+}
+.loginDrawer .alter .social.face:hover {
+  background-color: #34518d;
+}
+.loginDrawer .alter .social.google {
+  background-color: rgb(82, 179, 217);
+}
+.loginDrawer .alter .social.google:hover {
+  background-color: #2d9fcb;
+}
+.loginDrawer .alter .social .ico {
+  font-size: 20px;
+  margin-left: -20px;
+}
+.loginDrawer .new {
+  text-align: center;
+  margin-top: -20px;
+}
+.loginDrawer .new .icon {
+  margin-bottom: 10px;
+}
+.loginDrawer .new .icon .user {
+  color: rgba(0, 0, 0, 0.105);
+  font-size: 60px;
+}
+.loginDrawer .new .icon .txt {
+  font-size: 18px;
+  font-weight: 600;
+}
+.loginDrawer .new .link {
+  border-bottom: 1px solid rgb(237, 156, 75);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: #000;
+}
+.loginDrawer .new .link:hover {
+  color: #777777;
 }

@@ -9,7 +9,7 @@ function App() {
   return (
     <div style={{ minHeight: "100vh" }}>
       <Header navigate={navigate} setNavigate={setNavigate} />
-      <Nav />
+      {/* <Nav /> */}
       <Footer />
     </div>
   );
