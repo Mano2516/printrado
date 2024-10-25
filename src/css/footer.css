@@ -1,9 +1,14 @@
 .footer {
-  padding: 65px 0 80px;
+  padding: 25px 0;
   background-color: #000;
   max-width: 100%;
   position: relative;
   z-index: 10;
+}
+@media (max-width: 768px) {
+  .footer {
+    padding: 65px 0 80px;
+  }
 }
 .footer .container {
   width: 80%;
@@ -53,6 +58,7 @@
   color: rgba(255, 255, 255, 0.6);
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  text-decoration: none;
 }
 .footer .container .row .links .link:hover {
   color: #fff;

@@ -3,7 +3,7 @@ import "../css/login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FacebookFilled, GoogleOutlined } from "@ant-design/icons";
-export default function Login() {
+export default function Login({ setNavigate }) {
   const navigate = useNavigate();
   return (
     <div className="mainContainer">
@@ -17,7 +17,10 @@ export default function Login() {
                 title: "Home",
                 icon: "home",
                 className: "breadcrumb-item",
-                onClick: () => navigate("/"),
+                onClick: () => {
+                  navigate("/");
+                  setNavigate("home");
+                },
               },
               { name: "My Account", title: "My Account" },
             ]}

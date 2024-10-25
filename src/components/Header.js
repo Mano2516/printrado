@@ -30,10 +30,11 @@ import {
 } from "antd";
 // import Link from "antd/es/typography/Link";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export default function Header({ navigate, setNavigate }) {
   const [toogleDrawer, setToogleDrawer] = useState(false);
   const [loginDrawer, setLoginDrawer] = useState(false);
+  const [cartDrawer, setCartDrawer] = useState(false);
   return (
     <div className="header">
       <div className="container">
@@ -90,7 +91,12 @@ export default function Header({ navigate, setNavigate }) {
                 backgroundColor: "#fff",
               }}
             >
-              <button className="cart">
+              <button
+                className="cart"
+                onClick={() => {
+                  setCartDrawer(true);
+                }}
+              >
                 <ShoppingCartOutlined />
                 <span className="value"> 200 </span>
                 <span className="currency">EGP</span>
@@ -163,7 +169,7 @@ export default function Header({ navigate, setNavigate }) {
             Self-Help
           </Link>
           <Link
-            href="#"
+            to={"/about"}
             className={navigate === "about" && "link active"}
             onClick={() => {
               setNavigate("about");
@@ -207,7 +213,12 @@ export default function Header({ navigate, setNavigate }) {
               backgroundColor: "rgb(237, 156, 75)",
             }}
           >
-            <ShoppingCartOutlined className="c" />
+            <ShoppingCartOutlined
+              className="c"
+              onClick={() => {
+                setCartDrawer(true);
+              }}
+            />
           </Badge>
         </div>
         <div className="smallSearch">
@@ -233,7 +244,9 @@ export default function Header({ navigate, setNavigate }) {
         openLogin={loginDrawer}
         setOpenLogin={setLoginDrawer}
         setNavigate={setNavigate}
+        setCart={setCartDrawer}
       />
+      <Cart openCart={cartDrawer} setIsOpen={setCartDrawer} />
     </div>
   );
 }
@@ -257,10 +270,11 @@ function ToggleDrawer({ openToogle, setISOpen, navigate, setNavigate }) {
       >
         <div className="categories">
           <Link
-            href="#"
+            to="/"
             className={navigate === "home" && "link active"}
             onClick={() => {
               setNavigate("home");
+              setISOpen(false);
             }}
           >
             Home
@@ -320,10 +334,11 @@ function ToggleDrawer({ openToogle, setISOpen, navigate, setNavigate }) {
             Self-Help
           </Link>
           <Link
-            href="#"
+            to="/about"
             className={navigate === "about" && "link active"}
             onClick={() => {
               setNavigate("about");
+              setISOpen(false);
             }}
           >
             About us
@@ -445,7 +460,7 @@ function LoginDrawer({ open, isOpen, setNavigate }) {
   );
 }
 
-function Nav({ openLogin, setOpenLogin }) {
+function Nav({ openLogin, setOpenLogin, setCart }) {
   return (
     <div className="navigationContainer">
       <div className="parts">
@@ -461,7 +476,11 @@ function Nav({ openLogin, setOpenLogin }) {
           <HeartOutlined />
           <div className="txt">Wishlist</div>
         </div>
-        <div>
+        <div
+          onClick={() => {
+            setCart(true);
+          }}
+        >
           <Badge
             count={5}
             style={{ color: "white", backgroundColor: "rgb(237, 156, 75)" }}
@@ -485,6 +504,41 @@ function Nav({ openLogin, setOpenLogin }) {
           <div className="txt">My Account</div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function Cart({ openCart, setIsOpen }) {
+  const navigate = useNavigate();
+  return (
+    <div>
+      <Drawer
+        open={openCart}
+        closable
+        onClose={() => {
+          setIsOpen(false);
+        }}
+        extra={
+          <div style={{ fontSize: 24, fontWeight: 600 }}>Shopping cart</div>
+        }
+        className="cartDrawer"
+      >
+        <div className="content">
+          <div className="icon">
+            <ShoppingCartOutlined />
+          </div>
+          <div className="txt">Your cart is empty</div>
+          <button
+            onClick={() => {
+              navigate("/");
+              setIsOpen(false);
+            }}
+            className="btn"
+          >
+            return to shop
+          </button>
+        </div>
+      </Drawer>
     </div>
   );
 }

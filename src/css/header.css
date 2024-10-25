@@ -503,3 +503,45 @@
 .loginDrawer .new .link:hover {
   color: #777777;
 }
+
+.cartDrawer .content {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.cartDrawer .content .icon {
+  font-size: 80px;
+  color: rgba(128, 128, 128, 0.451);
+  margin-bottom: 20px;
+}
+.cartDrawer .content .txt {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #000;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+}
+.cartDrawer .content .btn {
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+  background-color: rgb(237, 156, 75);
+  color: #fff;
+  border-radius: 35px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  border: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-weight: 600;
+  cursor: pointer;
+}
+.cartDrawer .content .btn:hover {
+  background-color: #e8831d;
+}

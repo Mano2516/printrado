@@ -6,12 +6,12 @@ import Footer from "./components/Footer";
 import PageContent from "./components/PageContent";
 
 function App() {
-  const [navigate, setNavigate] = useState("/");
+  const [navigate, setNavigate] = useState("");
   return (
     <div style={{ minHeight: "100vh" }}>
       <Header navigate={navigate} setNavigate={setNavigate} />
-      <PageContent />
-      <Footer />
+      <PageContent navigate={navigate} setNavigate={setNavigate} />
+      <Footer navigate={navigate} setNavigate={setNavigate} />
     </div>
   );
 }

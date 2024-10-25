@@ -1,6 +1,6 @@
 import { Image } from "antd";
 import logo from "../imgs/logo.webp";
-import Link from "antd/es/typography/Link";
+
 import "../css/footer.css";
 import {
   FacebookFilled,
@@ -10,10 +10,10 @@ import {
   TikTokFilled,
   TwitterOutlined,
   WhatsAppOutlined,
-  XFilled,
   YoutubeFilled,
 } from "@ant-design/icons";
-export default function Footer() {
+import { Link } from "react-router-dom";
+export default function Footer({ setNavigate }) {
   return (
     <div className="footer">
       <div className="container">
@@ -28,7 +28,13 @@ export default function Footer() {
           </div>
           <div className="links">
             <div>
-              <Link href="#" className="link">
+              <Link
+                to={"/about"}
+                className="link"
+                onClick={() => {
+                  setNavigate("about");
+                }}
+              >
                 About Us
               </Link>
             </div>
