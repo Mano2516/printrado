@@ -81,6 +81,12 @@
   letter-spacing: 0.5px;
   word-spacing: 1px;
 }
+@media (max-width: 786px) {
+  .right .cont {
+    max-width: 300px;
+    text-align: center;
+  }
+}
 .right .btn-cont > button {
   border: none;
   border-radius: 35px;
@@ -151,6 +157,7 @@
 @media (max-width: 768px) {
   .registerForm .content {
     max-width: 300px;
+    text-align: center;
   }
 }
 .registerForm .btn {
@@ -168,6 +175,12 @@
   -webkit-transition: 0.3s;
   transition: 0.3s;
   font-weight: 600;
+}
+@media (max-width: 768px) {
+  .registerForm .btn {
+    display: block;
+    margin: 0 auto;
+  }
 }
 .registerForm .btn:hover {
   background-color: #e8831d;
