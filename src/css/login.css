@@ -1,0 +1,307 @@
+.mainContainer {
+  max-width: 100%;
+  margin-top: -28px;
+}
+.mainContainer .title {
+  background-color: #aeb6a1;
+  max-width: 100%;
+  height: 140px;
+  color: #fff;
+}
+.mainContainer .title .ele {
+  width: 80%;
+  margin: 0 auto;
+}
+.mainContainer .title .ele .heading {
+  padding: 10px 0 0;
+  font-family: "Urbanist", Arial, Helvetica, sans-serif;
+  color: #fff;
+  font-size: 44px;
+  font-weight: 600;
+}
+.mainContainer .title .ele .ant-breadcrumb-link {
+  cursor: pointer;
+  color: #fff;
+}
+.mainContainer .cont {
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 60px 0;
+}
+@media (max-width: 768px) {
+  .mainContainer .cont {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 20px;
+  }
+}
+@media (max-width: 786px) {
+  .mainContainer .cont .max {
+    display: none;
+  }
+}
+@media (min-width: 787px) {
+  .mainContainer .cont .min {
+    display: none;
+  }
+}
+
+.right {
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 450px;
+}
+.right .tit {
+  font-family: "Urbanist", Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.right .cont {
+  font-size: 15px;
+  color: #777;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  letter-spacing: 0.5px;
+  word-spacing: 1px;
+}
+.right .btn-cont > button {
+  border: none;
+  border-radius: 35px;
+  color: #333;
+  padding: 5px 20px;
+  background-color: #f7f7f7;
+  cursor: pointer;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  height: 40px;
+  font-weight: 600;
+}
+.right .btn-cont > button:hover {
+  background-color: #ddd;
+}
+
+.registerForm {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.registerForm .ant-form-item-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #777;
+  margin-bottom: 10px;
+  display: block;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+}
+.registerForm .field {
+  border: 1px solid #ddd;
+  border-radius: 35px;
+  padding: 15px;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  margin-bottom: 15px;
+  width: 80%;
+  height: 40px;
+}
+.registerForm .field:hover {
+  border-color: #ddd;
+}
+.registerForm .field:focus {
+  border-color: #ddd;
+}
+.registerForm .field:focus-within {
+  border-color: #ddd;
+}
+.registerForm .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+  font-size: 15px;
+  color: #777;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  letter-spacing: 0.5px;
+  word-spacing: 1px;
+  margin-bottom: 30px;
+  width: 500px;
+}
+@media (max-width: 768px) {
+  .registerForm .content {
+    max-width: 300px;
+  }
+}
+.registerForm .btn {
+  border: none;
+  border-radius: 35px;
+  color: #333;
+  padding: 5px 20px;
+  width: 80%;
+  height: 35px;
+  background-color: rgb(237, 156, 75);
+  cursor: pointer;
+  color: #fff;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-weight: 600;
+}
+.registerForm .btn:hover {
+  background-color: #e8831d;
+}
+
+.loginForm {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+@media (max-width: 768px) {
+  .loginForm {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+.loginForm .form {
+  width: 80%;
+}
+@media (max-width: 768px) {
+  .loginForm .form {
+    width: 100%;
+  }
+}
+.loginForm .form .ant-form-item {
+  margin-bottom: 5px;
+}
+.loginForm .form .ant-form-item .ant-form-item-label {
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: -6px;
+}
+.loginForm .form .ant-form-item .field {
+  border-color: #ecebea;
+  border-radius: 35px;
+  padding-inline: 15px;
+  height: 40px;
+}
+.loginForm .form .ant-form-item .field:last-child {
+  margin-bottom: 15px;
+}
+.loginForm .form .ant-form-item .field:hover {
+  border-color: #ecebea;
+}
+.loginForm .form .ant-form-item .field:focus {
+  border-color: #ecebea;
+  -webkit-box-shadow: 0 0 0 2px #ecebea;
+          box-shadow: 0 0 0 2px #ecebea;
+}
+.loginForm .form .ant-form-item .field:focus-within {
+  border-color: #ecebea;
+  -webkit-box-shadow: 0 0 0 1px transparent;
+          box-shadow: 0 0 0 1px transparent;
+}
+.loginForm .form .inBtn {
+  background-color: rgb(237, 156, 75);
+  color: #fff;
+  border-radius: 35px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  border: none;
+  width: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-weight: 600;
+  cursor: pointer;
+}
+.loginForm .form .inBtn:hover {
+  background-color: #e8831d;
+}
+.loginForm .remember {
+  width: 80%;
+}
+@media (max-width: 768px) {
+  .loginForm .remember {
+    width: 100%;
+  }
+}
+.loginForm .forgot {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 14px;
+}
+.loginForm .forgot:hover {
+  text-decoration: underline;
+}
+.loginForm .alter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+.loginForm .alter .social {
+  height: 40px;
+  border-radius: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 80%;
+  border: none;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .loginForm .alter .social {
+    width: 100%;
+  }
+}
+.loginForm .alter .social.face {
+  background-color: #4267b2;
+}
+.loginForm .alter .social.face:hover {
+  background-color: #34518d;
+}
+.loginForm .alter .social.google {
+  background-color: rgb(82, 179, 217);
+}
+.loginForm .alter .social.google:hover {
+  background-color: #2d9fcb;
+}
+.loginForm .alter .social .ico {
+  font-size: 20px;
+  margin-left: -20px;
+}

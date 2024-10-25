@@ -272,6 +272,7 @@
   -webkit-transition: 0.3s;
   transition: 0.3s;
   font-weight: 600;
+  text-decoration: none;
 }
 .header .navContainer .categories a.active {
   color: rgb(237, 156, 75);
@@ -374,6 +375,10 @@
   color: rgb(237, 156, 75);
 }
 
+.loginDrawer {
+  z-index: 20;
+  position: relative;
+}
 .loginDrawer .form .ant-form-item {
   margin-bottom: 5px;
 }

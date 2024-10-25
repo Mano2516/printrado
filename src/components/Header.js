@@ -28,8 +28,9 @@ import {
   Input,
   Space,
 } from "antd";
-import Link from "antd/es/typography/Link";
+// import Link from "antd/es/typography/Link";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 export default function Header({ navigate, setNavigate }) {
   const [toogleDrawer, setToogleDrawer] = useState(false);
   const [loginDrawer, setLoginDrawer] = useState(false);
@@ -99,7 +100,7 @@ export default function Header({ navigate, setNavigate }) {
         </div>
         <div className="categories">
           <Link
-            href="#"
+            to={"/"}
             className={navigate === "home" && "link active"}
             onClick={() => {
               setNavigate("home");
@@ -223,8 +224,16 @@ export default function Header({ navigate, setNavigate }) {
         navigate={navigate}
         setNavigate={setNavigate}
       />
-      <LoginDrawer open={loginDrawer} isOpen={setLoginDrawer} />
-      <Nav openLogin={loginDrawer} setOpenLogin={setLoginDrawer} />
+      <LoginDrawer
+        open={loginDrawer}
+        isOpen={setLoginDrawer}
+        setNavigate={setNavigate}
+      />
+      <Nav
+        openLogin={loginDrawer}
+        setOpenLogin={setLoginDrawer}
+        setNavigate={setNavigate}
+      />
     </div>
   );
 }
@@ -334,11 +343,14 @@ function ToggleDrawer({ openToogle, setISOpen, navigate, setNavigate }) {
     </div>
   );
 }
-function LoginDrawer({ open, isOpen }) {
+function LoginDrawer({ open, isOpen, setNavigate }) {
   return (
     <div>
       <Drawer
-        style={{ padding: "0 20px" }}
+        placement="right"
+        style={{
+          padding: "0 20px",
+        }}
         className="loginDrawer"
         open={open}
         closable
@@ -416,7 +428,16 @@ function LoginDrawer({ open, isOpen }) {
             <div className="txt">No account yet ?</div>
           </div>
           <div>
-            <Link className="link">Create an Account</Link>
+            <Link
+              to="./login"
+              className="link"
+              onClick={() => {
+                isOpen(false);
+                setNavigate("");
+              }}
+            >
+              Create an Account
+            </Link>
           </div>
         </div>
       </Drawer>

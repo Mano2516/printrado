@@ -1,0 +1,264 @@
+@use "variables.scss" as *;
+.mainContainer {
+  max-width: 100%;
+  margin-top: -28px;
+  .title {
+    background-color: #aeb6a1;
+    max-width: 100%;
+    height: 140px;
+    color: #fff;
+    .ele {
+      width: 80%;
+      margin: 0 auto;
+
+      .heading {
+        padding: 10px 0 0;
+        font-family: $title-font-family;
+        color: #fff;
+        font-size: 44px;
+        font-weight: 600;
+      }
+      .ant-breadcrumb-link {
+        cursor: pointer;
+        color: #fff;
+      }
+    }
+  }
+  .cont {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 0;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 20px;
+      // align-items: center;
+      // justify-content: center;
+    }
+    .max {
+      @media (max-width: 786px) {
+        display: none;
+      }
+    }
+    .min {
+      @media (min-width: 787px) {
+        display: none;
+      }
+    }
+  }
+}
+.right {
+  text-align: center;
+  flex: 1;
+  width: 450px;
+  .tit {
+    font-family: $title-font-family;
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  .cont {
+    font-size: 15px;
+    color: #777;
+    font-family: $text-font;
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+  }
+  .btn-cont > button {
+    border: none;
+    border-radius: 35px;
+    color: #333;
+    padding: 5px 20px;
+    background-color: #f7f7f7;
+    cursor: pointer;
+    font-family: $text-font;
+    font-size: 13px;
+    transition: 0.3s;
+    height: 40px;
+    font-weight: 600;
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+}
+
+.registerForm {
+  flex: 1;
+  .ant-form-item-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #777;
+    margin-bottom: 10px;
+    display: block;
+    font-family: $text-font;
+  }
+  .field {
+    border: 1px solid #ddd;
+    border-radius: 35px;
+    padding: 15px;
+    font-family: $text-font;
+    font-size: 14px;
+    margin-bottom: 15px;
+    width: 80%;
+    height: 40px;
+    &:hover {
+      border-color: #ddd;
+    }
+    &:focus {
+      border-color: #ddd;
+    }
+    &:focus-within {
+      border-color: #ddd;
+    }
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 15px;
+    color: #777;
+    font-family: $text-font;
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+    margin-bottom: 30px;
+    width: 500px;
+    @media (max-width: 768px) {
+      max-width: 300px;
+    }
+  }
+  .btn {
+    border: none;
+    border-radius: 35px;
+    color: #333;
+    padding: 5px 20px;
+    width: 80%;
+    height: 35px;
+    background-color: $mainColor;
+    cursor: pointer;
+    color: #fff;
+    font-family: $text-font;
+    font-size: 13px;
+    transition: 0.3s;
+    font-weight: 600;
+    &:hover {
+      background-color: darken($mainColor, 10%);
+    }
+  }
+}
+
+.loginForm {
+  flex: 1;
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .form {
+    width: 80%;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+    .ant-form-item {
+      margin-bottom: 5px;
+      .ant-form-item-label {
+        font-family: $text-font;
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: -6px;
+      }
+      .field {
+        // margin-bottom: 10px;
+        border-color: #ecebea;
+        border-radius: 35px;
+        padding-inline: 15px;
+        height: 40px;
+        // width: 80%;
+        &:last-child {
+          margin-bottom: 15px;
+        }
+        &:hover {
+          border-color: #ecebea;
+        }
+        &:focus {
+          border-color: #ecebea;
+          box-shadow: 0 0 0 2px #ecebea;
+        }
+        &:focus-within {
+          border-color: #ecebea;
+          box-shadow: 0 0 0 1px transparent;
+        }
+      }
+    }
+    .inBtn {
+      background-color: $mainColor;
+      color: #fff;
+      border-radius: 35px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-family: $text-font;
+      border: none;
+      width: 100%;
+      // width: 80%;
+      transition: 0.3s;
+      font-weight: 600;
+      cursor: pointer;
+      &:hover {
+        background-color: darken($mainColor, 10%);
+      }
+    }
+  }
+  .remember {
+    width: 80%;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+  .forgot {
+    transition: 0.3s;
+    font-size: 14px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .alter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .social {
+      height: 40px;
+      border-radius: 35px;
+      display: flex;
+      // padding-inline: 10px;
+      align-items: center;
+      justify-content: space-around;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 80%;
+      border: none;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+      color: #fff;
+      &.face {
+        background-color: #4267b2;
+        &:hover {
+          background-color: darken(#4267b2, 10%);
+        }
+      }
+      &.google {
+        background-color: rgb(82, 179, 217);
+        &:hover {
+          background-color: darken(rgb(82, 179, 217), 10%);
+        }
+      }
+      .ico {
+        font-size: 20px;
+        margin-left: -20px;
+      }
+    }
+  }
+}

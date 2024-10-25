@@ -48,7 +48,6 @@
           gap: 5px;
           align-items: center;
           color: $el-color;
-
           font-size: 14px;
           a {
             text-decoration: none;
@@ -200,6 +199,7 @@
         color: $text-color;
         transition: 0.3s;
         font-weight: 600;
+        text-decoration: none;
         &.active {
           color: $mainColor;
         }
@@ -296,6 +296,8 @@
   }
 }
 .loginDrawer {
+  z-index: 20;
+  position: relative;
   .form {
     .ant-form-item {
       margin-bottom: 5px;
