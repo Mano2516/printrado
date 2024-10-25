@@ -18,13 +18,14 @@
   color: #fff;
   font-size: 44px;
   font-weight: 600;
+  max-width: 100%;
 }
 .mainContainer .title .ele .ant-breadcrumb-link {
   cursor: pointer;
   color: #fff;
 }
 .mainContainer .cont {
-  width: 80%;
+  max-width: 80%;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -67,6 +68,11 @@
       -ms-flex: 1;
           flex: 1;
   width: 450px;
+}
+@media (max-width: 768px) {
+  .right {
+    width: 300px;
+  }
 }
 .right .tit {
   font-family: "Urbanist", Arial, Helvetica, sans-serif;
@@ -127,6 +133,11 @@
   margin-bottom: 15px;
   width: 80%;
   height: 40px;
+}
+@media (max-width: 768px) {
+  .registerForm .field {
+    width: 100%;
+  }
 }
 .registerForm .field:hover {
   border-color: #ddd;

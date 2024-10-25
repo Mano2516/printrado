@@ -35,7 +35,7 @@ function Content() {
       {page === "login" && <LoginForm />}
       {page === "signup" && <SignUpForm />}
       <Divider type="vertical" style={{ height: 300 }} className="max" />
-      <Divider style={{ width: 300 }} className="min">
+      <Divider style={{ width: 200 }} className="min">
         OR
       </Divider>
       <MainContent btn={page} setBtn={setPage} />
