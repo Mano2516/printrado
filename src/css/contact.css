@@ -1,0 +1,151 @@
+.mainContainer .contentContainer {
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 30px 0;
+}
+@media (max-width: 768px) {
+  .mainContainer .contentContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 20px;
+  }
+}
+.mainContainer .contentContainer .formContainer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.mainContainer .contentContainer .formContainer .location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.mainContainer .contentContainer .formContainer .location .p {
+  font-family: "Urbanist", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #242424;
+  font-size: 15px;
+}
+.mainContainer .contentContainer .formContainer .form .ant-form-item-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #777;
+  margin-bottom: 10px;
+  display: block;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+}
+.mainContainer .contentContainer .formContainer .form .field {
+  border: 1px solid #ddd;
+  border-radius: 35px;
+  padding: 15px;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  margin-bottom: 15px;
+  width: 70%;
+  height: 40px;
+}
+.mainContainer .contentContainer .formContainer .form .field.phone {
+  height: 13px;
+  width: 63%;
+}
+.mainContainer .contentContainer .formContainer .form .field.phone:hover {
+  border-color: #ddd;
+}
+.mainContainer .contentContainer .formContainer .form .field.phone:focus {
+  border-color: #ddd;
+}
+.mainContainer .contentContainer .formContainer .form .field.phone:focus-within {
+  border-color: #ddd;
+}
+@media (max-width: 768px) {
+  .mainContainer .contentContainer .formContainer .form .field.phone {
+    width: 90%;
+  }
+}
+@media (max-width: 768px) {
+  .mainContainer .contentContainer .formContainer .form .field {
+    width: 100%;
+  }
+}
+.mainContainer .contentContainer .formContainer .form .field:hover {
+  border-color: #ddd;
+}
+.mainContainer .contentContainer .formContainer .form .field:focus {
+  border-color: #ddd;
+}
+.mainContainer .contentContainer .formContainer .form .field:focus-within {
+  border-color: #ddd;
+}
+.mainContainer .contentContainer .formContainer .form .txt {
+  width: 80%;
+  max-height: 400px;
+}
+.mainContainer .contentContainer .formContainer .form .txt:hover {
+  border-color: #ddd;
+}
+.mainContainer .contentContainer .formContainer .form .txt:focus {
+  border-color: #ddd;
+}
+.mainContainer .contentContainer .formContainer .form .txt:focus-within {
+  border-color: #ddd;
+}
+@media (max-width: 768px) {
+  .mainContainer .contentContainer .formContainer .form .txt {
+    width: 100%;
+  }
+}
+.mainContainer .contentContainer .formContainer .form .submitBtn {
+  background-color: rgb(237, 156, 75);
+  color: #fff;
+  border: none;
+  width: 95px;
+  padding: 15px 25px;
+  border-radius: 35px;
+  cursor: pointer;
+}
+.mainContainer .contentContainer .formContainer .form .submitBtn:hover {
+  background-color: #e8831d;
+}
+.mainContainer .contentContainer .faqContainer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.mainContainer .contentContainer .faqContainer .faq .ant-collapse-header-text {
+  font-family: "Urbanist", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #242424;
+  font-size: 18px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.mainContainer .contentContainer .faqContainer .faq .ant-collapse-header-text:hover {
+  color: rgb(237, 156, 75);
+}
+.mainContainer .contentContainer .faqContainer .faq .ant-collapse-content-box {
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: #777;
+}

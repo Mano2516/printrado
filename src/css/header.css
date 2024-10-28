@@ -226,7 +226,7 @@
 .header .navContainer .nav .icons .login {
   padding: 0 13px;
   height: 40px;
-  width: 150px;
+  width: 180px;
   border-radius: 35px;
   border: none;
   background-color: rgba(16, 16, 16, 0.05);
@@ -340,6 +340,9 @@
   padding-inline: 10px;
 }
 
+.drawer {
+  cursor: pointer;
+}
 .drawer .ant-drawer-body .categories {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -3,6 +3,7 @@ import "../css/login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FacebookFilled, GoogleOutlined } from "@ant-design/icons";
+import { scrollTo } from "react-scroll/modules/mixins/scroller";
 export default function Login({ setNavigate }) {
   const navigate = useNavigate();
   return (
@@ -172,6 +173,7 @@ function MainContent({ btn, setBtn }) {
           <button
             onClick={() => {
               setBtn("signup");
+              window.scrollTo(0, 0, { smooth: true });
             }}
           >
             Register
@@ -181,6 +183,7 @@ function MainContent({ btn, setBtn }) {
           <button
             onClick={() => {
               setBtn("login");
+              window.scrollTo(0, 0, { smooth: true });
             }}
           >
             {" "}

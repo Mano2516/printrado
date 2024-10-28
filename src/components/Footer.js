@@ -19,12 +19,14 @@ export default function Footer({ setNavigate }) {
       <div className="container">
         <div className="row">
           <div className="logo">
-            <Image
-              src={logo}
-              alt="Logo"
-              preview={false}
-              style={{ width: 235 }}
-            />
+            <Link to="/">
+              <Image
+                src={logo}
+                alt="Logo"
+                preview={false}
+                style={{ width: 235 }}
+              />
+            </Link>
           </div>
           <div className="links">
             <div>
@@ -49,7 +51,13 @@ export default function Footer({ setNavigate }) {
               </Link>
             </div>
             <div>
-              <Link href="#" className="link">
+              <Link
+                to="/contact"
+                className="link"
+                onClick={() => {
+                  setNavigate("contact");
+                }}
+              >
                 Contact us
               </Link>
             </div>

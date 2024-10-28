@@ -159,7 +159,7 @@
         .login {
           padding: 0 13px;
           height: 40px;
-          width: 150px;
+          width: 180px;
           border-radius: 35px;
           border: none;
           background-color: rgba(16, 16, 16, 0.05);
@@ -262,6 +262,7 @@
 }
 
 .drawer {
+  cursor: pointer;
   .ant-drawer-body {
     .categories {
       display: flex;

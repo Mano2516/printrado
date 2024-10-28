@@ -1,0 +1,132 @@
+@use "variables.scss" as *;
+.mainContainer {
+  .contentContainer {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 20px;
+      // text-align: center;
+      // align-items: center;
+      // justify-content: center;
+    }
+    .formContainer {
+      flex: 1;
+      .location {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .p {
+          // margin-bottom: 5px;
+          font-family: $title-font-family;
+          font-weight: bold;
+          color: #242424;
+          font-size: 15px;
+        }
+      }
+      .form {
+        .ant-form-item-label {
+          font-size: 14px;
+          font-weight: 600;
+          color: #777;
+          margin-bottom: 10px;
+          display: block;
+          font-family: $text-font;
+        }
+        .field {
+          border: 1px solid #ddd;
+          border-radius: 35px;
+          padding: 15px;
+          font-family: $text-font;
+          font-size: 14px;
+          margin-bottom: 15px;
+          width: 70%;
+          height: 40px;
+          &.phone {
+            height: 13px;
+            width: 63%;
+            &:hover {
+              border-color: #ddd;
+            }
+            &:focus {
+              border-color: #ddd;
+            }
+            &:focus-within {
+              border-color: #ddd;
+            }
+            @media (max-width: 768px) {
+              width: 90%;
+            }
+          }
+          @media (max-width: 768px) {
+            width: 100%;
+          }
+          &:hover {
+            border-color: #ddd;
+          }
+          &:focus {
+            border-color: #ddd;
+          }
+          &:focus-within {
+            border-color: #ddd;
+          }
+        }
+        .txt {
+          width: 80%;
+          max-height: 400px;
+          &:hover {
+            border-color: #ddd;
+          }
+          &:focus {
+            border-color: #ddd;
+          }
+          &:focus-within {
+            border-color: #ddd;
+          }
+          @media (max-width: 768px) {
+            width: 100%;
+          }
+        }
+        .submitBtn {
+          // width: 100%;
+          background-color: $mainColor;
+          color: #fff;
+          border: none;
+          width: 95px;
+          padding: 15px 25px;
+          border-radius: 35px;
+          cursor: pointer;
+          &:hover {
+            background-color: darken($mainColor, 10%);
+          }
+        }
+      }
+    }
+    .faqContainer {
+      flex: 1;
+      .faq {
+        .ant-collapse-header-text {
+          font-family: $title-font-family;
+          font-weight: bold;
+          color: #242424;
+          font-size: 18px;
+          transition: 0.3s;
+          &:hover {
+            color: $mainColor;
+            // margin-bottom: 1px;
+          }
+        }
+        .ant-collapse-content-box {
+          font-family: $text-font;
+          font-size: 15px;
+          color: #777;
+        }
+      }
+    }
+  }
+}

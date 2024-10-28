@@ -48,7 +48,12 @@ export default function Header({ navigate, setNavigate }) {
               <a href="tel:+20 123 456 7890">+20 123 456 7890</a>
             </div>
             <div className="pip">|</div>
-            <button className="shipping">
+            <button
+              className="shipping"
+              onClick={() => {
+                setCartDrawer(true);
+              }}
+            >
               Free shipping for all orders of EGP 2,000
             </button>
           </div>
@@ -56,12 +61,19 @@ export default function Header({ navigate, setNavigate }) {
       </div>
       <div className="navContainer">
         <div className="nav">
-          <div className="logo">
-            <Image
-              src={logo}
-              preview={false}
-              style={{ height: 100, width: 180 }}
-            />
+          <div
+            className="logo"
+            onClick={() => {
+              setNavigate("home");
+            }}
+          >
+            <Link to="/">
+              <Image
+                src={logo}
+                preview={false}
+                style={{ height: 100, width: 180 }}
+              />
+            </Link>
           </div>
           <div className="search">
             <Input
@@ -178,7 +190,7 @@ export default function Header({ navigate, setNavigate }) {
             About us
           </Link>
           <Link
-            href="#"
+            to={"/contact"}
             className={navigate === "contact" && "link active"}
             onClick={() => {
               setNavigate("contact");
@@ -261,9 +273,9 @@ function ToggleDrawer({ openToogle, setISOpen, navigate, setNavigate }) {
         style={{ width: 300 }}
         // closable={true}
         closeIcon={null}
-        onMouseLeave={() => {
-          setISOpen(false);
-        }}
+        // onMouseLeave={() => {
+        //   setISOpen(false);
+        // }}
         onClose={() => {
           setISOpen(false);
         }}
@@ -344,10 +356,11 @@ function ToggleDrawer({ openToogle, setISOpen, navigate, setNavigate }) {
             About us
           </Link>
           <Link
-            href="#"
+            to="/contact"
             className={navigate === "contact" && "link active"}
             onClick={() => {
               setNavigate("contact");
+              setISOpen(false);
             }}
           >
             Contact us
