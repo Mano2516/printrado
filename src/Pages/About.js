@@ -7,7 +7,7 @@ export default function About({ setNavigate }) {
     <div className="mainContainer">
       <div className="title">
         <div className="ele">
-          <Typography.Title className="heading">My Account</Typography.Title>
+          <Typography.Title className="heading"> About us</Typography.Title>
           <Breadcrumb
             items={[
               {
