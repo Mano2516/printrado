@@ -1,0 +1,165 @@
+.mainContainer {
+  max-width: 100%;
+}
+.mainContainer .Content {
+  width: 80%;
+  padding: 60px 0;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .mainContainer .Content {
+    width: 90%;
+  }
+}
+.mainContainer .Content .allItems {
+  margin: 0 auto;
+}
+.mainContainer .Content .allItems .card {
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 205px;
+  padding: 0 0 10px;
+  height: 370px;
+  border-radius: 14px;
+}
+@media (max-width: 768px) {
+  .mainContainer .Content .allItems .card {
+    width: 160px;
+    height: 270px;
+    margin-bottom: 60px;
+  }
+}
+.mainContainer .Content .allItems .card .cover {
+  position: relative;
+}
+.mainContainer .Content .allItems .card .cover .pag {
+  position: absolute;
+  top: 10px;
+  width: 95%;
+}
+.mainContainer .Content .allItems .card .cover .pag .badge {
+  background-color: rgb(237, 156, 75);
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 14px;
+  float: left;
+}
+.mainContainer .Content .allItems .card .cover .pag .fav {
+  color: #767676;
+  font-size: 22px;
+  float: right;
+}
+.mainContainer .Content .allItems .card .cover .img {
+  width: 100%;
+  margin: 0 auto;
+}
+.mainContainer .Content .allItems .card .details {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  padding: 0 10px 10px;
+  position: relative;
+  background-color: #fff;
+  margin-top: 10px;
+  height: 80px;
+  z-index: 200;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 20px;
+}
+.mainContainer .Content .allItems .card .details .h3 {
+  color: #000;
+  margin-top: 0px;
+  font-size: 16px;
+  width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+.mainContainer .Content .allItems .card .details .h3:hover {
+  color: #767676;
+}
+.mainContainer .Content .allItems .card .details .price {
+  margin-top: -5px;
+  display: block;
+  margin-bottom: 10px;
+}
+.mainContainer .Content .allItems .card .details .price .oldPrice {
+  color: #767676;
+  font-size: 15px;
+  text-decoration: line-through;
+  margin-right: 15px;
+}
+.mainContainer .Content .allItems .card .details .price .newPrice {
+  color: rgb(237, 156, 75);
+  font-size: 18px;
+  font-weight: bold;
+}
+.mainContainer .Content .allItems .card .details .btn {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background-color: rgb(237, 156, 75);
+  color: #fff;
+  border: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: none;
+}
+.mainContainer .Content .allItems .card .details .btn:hover {
+  background-color: #e8831d;
+}
+.mainContainer .Content .allItems .card:hover {
+  margin-bottom: 20px;
+  height: 400px;
+}
+@media (max-width: 768px) {
+  .mainContainer .Content .allItems .card:hover {
+    height: 350px;
+  }
+}
+.mainContainer .Content .allItems .card:hover .details {
+  margin-top: -40px;
+  margin-bottom: 10px;
+  height: 140px;
+}
+.mainContainer .Content .allItems .card:hover .details .btn {
+  display: block;
+}
+.mainContainer .Content .allItems .ant-list-pagination {
+  margin-top: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: rgb(237, 156, 75);
+}
+.mainContainer .Content .allItems .ant-list-pagination .ant-pagination-item-active {
+  border-color: rgb(237, 156, 75);
+  background-color: rgb(237, 156, 75);
+}
+.mainContainer .Content .allItems .ant-list-pagination .ant-pagination-item-active a {
+  color: #fff;
+}

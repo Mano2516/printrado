@@ -10,7 +10,7 @@ export default function Contact({ setNavigate }) {
     <div className="mainContainer">
       <div className="title">
         <div className="ele">
-          <Typography.Title className="heading">My Account</Typography.Title>
+          <Typography.Title className="heading">Contact us</Typography.Title>
           <Breadcrumb
             items={[
               {
@@ -23,7 +23,7 @@ export default function Contact({ setNavigate }) {
                   setNavigate("home");
                 },
               },
-              { name: "About us", title: "About us" },
+              { name: "Contact us", title: "Contact us" },
             ]}
           />
         </div>

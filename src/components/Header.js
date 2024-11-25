@@ -31,7 +31,12 @@ import {
 // import Link from "antd/es/typography/Link";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-export default function Header({ navigate, setNavigate }) {
+export default function Header({
+  navigate,
+  setNavigate,
+  setElements,
+  elements,
+}) {
   const [toogleDrawer, setToogleDrawer] = useState(false);
   const [loginDrawer, setLoginDrawer] = useState(false);
   const [cartDrawer, setCartDrawer] = useState(false);
@@ -65,6 +70,8 @@ export default function Header({ navigate, setNavigate }) {
             className="logo"
             onClick={() => {
               setNavigate("home");
+              setElements("home");
+              console.log(elements);
             }}
           >
             <Link to="/">
@@ -122,6 +129,7 @@ export default function Header({ navigate, setNavigate }) {
             className={navigate === "home" && "link active"}
             onClick={() => {
               setNavigate("home");
+              setElements("home");
             }}
           >
             Home
@@ -131,6 +139,7 @@ export default function Header({ navigate, setNavigate }) {
             className={navigate === "soft" && "link active"}
             onClick={() => {
               setNavigate("soft");
+              setElements("soft");
             }}
           >
             Software Engineering
@@ -140,6 +149,7 @@ export default function Header({ navigate, setNavigate }) {
             className={navigate === "data" && "link active"}
             onClick={() => {
               setNavigate("data");
+              setElements("data");
             }}
           >
             Data Science
@@ -149,6 +159,7 @@ export default function Header({ navigate, setNavigate }) {
             className={navigate === "tech" && "link active"}
             onClick={() => {
               setNavigate("tech");
+              setElements("tech");
             }}
           >
             Technology
@@ -158,6 +169,7 @@ export default function Header({ navigate, setNavigate }) {
             className={navigate === "cyber" && "link active"}
             onClick={() => {
               setNavigate("cyber");
+              setElements("cyber");
             }}
           >
             Cybersecurity
@@ -167,6 +179,7 @@ export default function Header({ navigate, setNavigate }) {
             className={navigate === "management" && "link active"}
             onClick={() => {
               setNavigate("management");
+              setElements("management");
             }}
           >
             Management
@@ -176,6 +189,7 @@ export default function Header({ navigate, setNavigate }) {
             className={navigate === "self" && "link active"}
             onClick={() => {
               setNavigate("self");
+              setElements("self");
             }}
           >
             Self-Help
@@ -246,6 +260,7 @@ export default function Header({ navigate, setNavigate }) {
         setISOpen={setToogleDrawer}
         navigate={navigate}
         setNavigate={setNavigate}
+        setElements={setElements}
       />
       <LoginDrawer
         open={loginDrawer}
@@ -263,7 +278,13 @@ export default function Header({ navigate, setNavigate }) {
   );
 }
 
-function ToggleDrawer({ openToogle, setISOpen, navigate, setNavigate }) {
+function ToggleDrawer({
+  openToogle,
+  setISOpen,
+  navigate,
+  setNavigate,
+  setElements,
+}) {
   return (
     <div>
       <Drawer
@@ -287,6 +308,7 @@ function ToggleDrawer({ openToogle, setISOpen, navigate, setNavigate }) {
             onClick={() => {
               setNavigate("home");
               setISOpen(false);
+              setElements("home");
             }}
           >
             Home
@@ -296,6 +318,8 @@ function ToggleDrawer({ openToogle, setISOpen, navigate, setNavigate }) {
             className={navigate === "soft" && "link active"}
             onClick={() => {
               setNavigate("soft");
+              setElements("soft");
+              setISOpen(false);
             }}
           >
             Software Engineering
@@ -305,6 +329,8 @@ function ToggleDrawer({ openToogle, setISOpen, navigate, setNavigate }) {
             className={navigate === "data" && "link active"}
             onClick={() => {
               setNavigate("data");
+              setElements("data");
+              setISOpen(false);
             }}
           >
             Data Science
@@ -314,6 +340,8 @@ function ToggleDrawer({ openToogle, setISOpen, navigate, setNavigate }) {
             className={navigate === "tech" && "link active"}
             onClick={() => {
               setNavigate("tech");
+              setElements("tech");
+              setISOpen(false);
             }}
           >
             Technology
@@ -323,6 +351,8 @@ function ToggleDrawer({ openToogle, setISOpen, navigate, setNavigate }) {
             className={navigate === "cyber" && "link active"}
             onClick={() => {
               setNavigate("cyber");
+              setElements("cyber");
+              setISOpen(false);
             }}
           >
             Cybersecurity
@@ -332,6 +362,8 @@ function ToggleDrawer({ openToogle, setISOpen, navigate, setNavigate }) {
             className={navigate === "management" && "link active"}
             onClick={() => {
               setNavigate("management");
+              setElements("management");
+              setISOpen(false);
             }}
           >
             Management
@@ -341,6 +373,8 @@ function ToggleDrawer({ openToogle, setISOpen, navigate, setNavigate }) {
             className={navigate === "self" && "link active"}
             onClick={() => {
               setNavigate("self");
+              setElements("self");
+              setISOpen(false);
             }}
           >
             Self-Help

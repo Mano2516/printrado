@@ -4,12 +4,24 @@ import Items from "../Pages/Items";
 import About from "../Pages/About";
 import Contact from "../Pages/Contact";
 
-export default function AppRoutes({ navigate, setNavigate }) {
+export default function AppRoutes({
+  navigate,
+  setNavigate,
+  elements,
+  setElements,
+}) {
   return (
     <Routes>
       <Route
         path="/"
-        element={<Items navigate={navigate} setNavigate={setNavigate} />}
+        element={
+          <Items
+            navigate={navigate}
+            setNavigate={setNavigate}
+            elements={elements}
+            setElements={setElements}
+          />
+        }
       />
       <Route
         path="/login"
