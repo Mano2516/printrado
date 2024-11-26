@@ -5,47 +5,18 @@ import "../css/items.css";
 import { Link } from "react-router-dom";
 import { HomePageElements, SoftwareBooks } from "../pagesContent/HomePageEle";
 
-// const HomePageElements = [
-//   {
-//     title: "Grokking Algorithms",
-//     price: 339,
-//     discount: true,
-//     discoutRate: 56,
-//     img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2024/02/12215955/Grokking-Algorithms-205x275.jpg.webp",
-//   },
-//   {
-//     title: "Cracking the Coding Interview",
-//     price: 449,
-//     discount: false,
-//     img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2021/02/12234658/Cracking-the-Coding-Interview-205x293.jpg.webp",
-//   },
-//   {
-//     title: "The Pragmatic ",
-//     price: 299,
-//     discount: false,
-//     img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2021/02/12234658/Cracking-the-Coding-Interview-205x293.jpg.webp",
-//   },
-//   {
-//     title: "Clean Code",
-//     price: 339,
-//     discount: true,
-//     discoutRate: 56,
-//     img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2021/02/12234821/Clean-Code-205x271.jpg.webp",
-//   },
-//   {
-//     title: "The Clean Coder",
-//     price: 399,
-//     discount: false,
-//     img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2021/02/12234658/Cracking-the-Coding-Interview-205x293.jpg.webp",
-//   },
-// ];
-export default function Items({ elements, setElements }) {
+export default function Items({
+  elements,
+  setElements,
+  setNavigate,
+  setItemToDisplay,
+  itemToDisplay,
+}) {
   const [items, setItems] = useState(HomePageElements);
   useEffect(() => {
     elements === "home" && setItems(HomePageElements);
     elements === "soft" && setItems(SoftwareBooks);
   });
-
   return (
     <div className="mainContainer">
       <div className="Content">
@@ -70,7 +41,19 @@ export default function Items({ elements, setElements }) {
           dataSource={items}
           renderItem={(product) => {
             return (
-              <Link>
+              <Link
+                to={"/product"}
+                onClick={() => {
+                  setItemToDisplay(product); // Update the state (asynchronous)
+                  setNavigate("product");
+
+                  // Use 'product' directly instead of 'itemToDisplay'
+                  const item = JSON.stringify(product);
+                  window.localStorage.setItem("product", item);
+                  console.log(item); // Log the current product being added
+                  console.log(window.localStorage.getItem("product")); // Log what's in localStorage
+                }}
+              >
                 <div className="card">
                   <div className="cover">
                     <div className="pag">

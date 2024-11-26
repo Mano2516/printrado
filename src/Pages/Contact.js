@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 import TextArea from "antd/es/input/TextArea";
 import ReactInputMask from "react-input-mask";
 
-export default function Contact({ setNavigate }) {
+export default function Contact({ setNavigate, itemToDisplay }) {
   const navigate = useNavigate();
+
   return (
     <div className="mainContainer">
       <div className="title">

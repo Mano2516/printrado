@@ -5,6 +5,8 @@ export default function PageContent({
   navigate,
   elements,
   setElements,
+  itemToDisplay,
+  setItemToDisplay,
 }) {
   return (
     <div style={{ maxWidth: "100%" }} className="container">
@@ -14,6 +16,8 @@ export default function PageContent({
           setNavigate={setNavigate}
           elements={elements}
           setElements={setElements}
+          itemToDisplay={itemToDisplay}
+          setItemToDisplay={setItemToDisplay}
         />
       </div>
     </div>

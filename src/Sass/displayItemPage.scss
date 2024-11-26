@@ -1,0 +1,238 @@
+@use "variables.scss" as *;
+.mainContainer {
+  width: 100%;
+  .cont {
+    width: 80%;
+    margin: 0 auto;
+    padding: 70px 0;
+    display: flex;
+    flex-direction: column;
+    .navigation {
+      .breadcrumb-item {
+        cursor: pointer;
+      }
+    }
+    .DataSection {
+      display: flex;
+      gap: 30px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+      .img {
+        // flex: 1;
+        img {
+          width: 320px;
+        }
+      }
+      .info {
+        flex: 1;
+
+        max-width: 100%;
+        .itemTitle {
+          font-size: 34px;
+          font-family: $title-font-family;
+          font-weight: 700;
+          margin-bottom: 35px;
+          width: 100%;
+          @media (max-width: 768px) {
+            font-size: 20px;
+          }
+        }
+        .priceContainer {
+          // margin-top: -5px;
+          display: block;
+          margin-bottom: 35px;
+          font-family: $title-font-family;
+          font-size: 28px;
+          @media (max-width: 768px) {
+            font-size: 18px;
+          }
+          .oldPrice {
+            color: #bbb;
+            text-decoration: line-through;
+            margin-right: 15px;
+          }
+          .newPrice {
+            color: $mainColor;
+            font-weight: bold;
+          }
+        }
+        .actions {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          // gap: 60px;
+          row-gap: 10px;
+          align-items: center;
+          @media (max-width: 768px) {
+            row-gap: 10px;
+          }
+          .changeValue {
+            border: 1px solid #ddd;
+            /* padding: 9px 0; */
+            border-radius: 18px;
+            display: block;
+            height: 35px;
+            width: fit-content;
+            color: rgb(119, 119, 119);
+
+            button {
+              // background-color: $mainColor;
+              // color: #fff;
+              // border: none;
+              // padding: 10px 20px;
+              // border-radius: 30px;
+              transition: 0.3s;
+              border: none;
+              background-color: transparent;
+              cursor: pointer;
+              width: fit-content;
+              text-align: center;
+              font-size: 14px;
+              height: 35px;
+              width: 35px;
+              &:hover {
+                color: #fff;
+                background-color: $mainColor;
+              }
+              &.inc {
+                border-radius: 35px 0 0 35px;
+                margin-right: -7px;
+                border-right: 1px solid #ddd;
+              }
+              &.dec {
+                margin-left: -7px;
+                border-radius: 0 35px 35px 0;
+                border-left: 1px solid #ddd;
+              }
+            }
+            .value {
+              margin-inline: 7px;
+
+              padding: 0 5px;
+            }
+          }
+          .addToCart,
+          .buyNow {
+            border: none;
+            // width: 100px;
+            padding: 16px 85px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: $text-font;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+            @media (max-width: 768px) {
+              padding: 10px 40px;
+            }
+          }
+          .addToCart {
+            background-color: $mainColor;
+            color: #fff;
+            &:hover {
+              background-color: darken($mainColor, 10%);
+            }
+          }
+          .buyNow {
+            background-color: #101010e6;
+            color: #fff;
+            &:hover {
+              background-color: darken(#101010e6, 10%);
+            }
+          }
+          .favEle {
+            display: flex;
+            gap: 10px;
+            flex-direction: row;
+            cursor: pointer;
+            align-items: center;
+            transition: 0.3s;
+            font-size: 16px;
+            font-family: $text-font;
+            &:hover {
+              color: #767676;
+            }
+          }
+        }
+        .more {
+          padding-top: 10px;
+          @media (max-width: 1025px) {
+            display: none;
+          }
+          .questions {
+            display: flex;
+            gap: 30px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            color: #767676;
+            font-family: $title-font-family;
+            font-size: 23px;
+            font-weight: 700;
+            transition: 0.3s;
+            &:hover {
+              color: #000;
+            }
+            .active {
+              color: #000;
+            }
+            span {
+              position: relative;
+              transition: 0.3s;
+              &::before {
+                position: absolute;
+                content: "";
+                width: 0;
+                height: 4px;
+                background-color: $mainColor;
+                left: 0;
+                top: -35px;
+                transition: 0.3s;
+              }
+              &:hover::before {
+                width: 100%;
+              }
+              &.active::before {
+                width: 100%;
+              }
+            }
+          }
+          .answers {
+            color: #767676;
+            font-family: $text-font;
+            font-size: 14px;
+          }
+        }
+        .faqs {
+          @media (max-width: 1025px) {
+            display: block;
+          }
+          @media (min-width: 1024px) {
+            display: none;
+          }
+          .ant-collapse-header-text {
+            font-family: $title-font-family;
+            font-weight: bold;
+            color: #242424;
+            font-size: 18px;
+            transition: 0.3s;
+            &:hover {
+              color: $mainColor;
+              // margin-bottom: 1px;
+            }
+          }
+          .ant-collapse-content-box {
+            font-family: $text-font;
+            font-size: 15px;
+            color: #777;
+          }
+        }
+      }
+    }
+  }
+}

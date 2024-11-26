@@ -511,14 +511,16 @@ function Nav({ openLogin, setOpenLogin, setCart }) {
   return (
     <div className="navigationContainer">
       <div className="parts">
-        <div className="part">
-          <ShopOutlined />
-          <div className="txt">Shop</div>
-        </div>
-        <div className="part">
+        <Link to={"/"}>
+          <div className="part">
+            <ShopOutlined />
+            <div className="txt">Shop</div>
+          </div>
+        </Link>
+        {/* <div className="part">
           <FilterOutlined />
           <div className="txt">Filters</div>
-        </div>
+        </div> */}
         <div className="part">
           <HeartOutlined />
           <div className="txt">Wishlist</div>
