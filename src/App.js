@@ -9,6 +9,7 @@ function App() {
   const [navigate, setNavigate] = useState("");
   const [pageEle, setpageEle] = useState("");
   const [itemToDisplay, setItemToDisplay] = useState([]);
+  const [pageItems, setPageItems] = useState([]);
   return (
     <div style={{ minHeight: "100vh" }}>
       <Header
@@ -26,6 +27,8 @@ function App() {
         elements={pageEle}
         setItemToDisplay={setItemToDisplay}
         itemToDisplay={itemToDisplay}
+        pageItems={pageItems}
+        setPageItems={setPageItems}
       />
       <Footer
         navigate={navigate}

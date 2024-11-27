@@ -1,9 +1,15 @@
-import { Breadcrumb, Collapse, Divider } from "antd";
+import { Breadcrumb, Collapse, Divider, List } from "antd";
 import "../css/displayItemPage.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { HeartOutlined } from "@ant-design/icons";
-export default function DisplayItem({ itemToDisplay, setNavigate }) {
+export default function DisplayItem({
+  itemToDisplay,
+  setNavigate,
+  setItemToDisplay,
+  setPageItems,
+  pageItems,
+}) {
   const product =
     itemToDisplay || JSON.parse(window.localStorage.getItem("product"));
   // const product = {
@@ -157,7 +163,165 @@ export default function DisplayItem({ itemToDisplay, setNavigate }) {
             </div>
           </div>
         </div>
+        <RelatedBooks
+          pageItems={pageItems}
+          setPageItems={setPageItems}
+          setItemToDisplay={setItemToDisplay}
+          setNavigate={setNavigate}
+        />
       </div>
     </div>
   );
+}
+
+function RelatedBooks({
+  pageItems,
+  setNavigate,
+  setItemToDisplay,
+  setPageItems,
+}) {
+  if (!pageItems || pageItems.length === 0) {
+    return <div className="itemsContainer">No related books available.</div>;
+  }
+  pageItems.length = 5;
+
+  // console.log(pageItems);
+  // console.log(pageItems);
+  return (
+    <div className="ItemsContainer">
+      {pageItems.map((product, index) => {
+        return (
+          <div className="allItems">
+            <Link
+              key={product.title || index} // Fallback to `index` if `title` is missing
+              to="/product"
+              onClick={() => {
+                setItemToDisplay(product); // Pass a single product
+                window.localStorage.setItem("product", JSON.stringify(product));
+                // window.location.reload();
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth", // Smooth scrolling
+                });
+              }}
+            >
+              <div className="card">
+                <div className="cover">
+                  <div className="pag">
+                    {product.discount && (
+                      <span className="badge">-{product.discoutRate}%</span>
+                    )}
+                    <span className="fav">
+                      <HeartOutlined />
+                    </span>
+                  </div>
+                  <img
+                    className="img"
+                    src={product.img}
+                    alt={product.title || "Product"}
+                  />
+                </div>
+                <div className="details">
+                  <div className="h3">{product.title || "Untitled"}</div>
+                  <span className="price">
+                    {product.discount ? (
+                      <span>
+                        <span className="oldPrice">{product.price} EGP</span>
+                        <span className="newPrice">
+                          {(
+                            product.price -
+                            (product.discoutRate / 100) * product.price
+                          ).toFixed(0)}{" "}
+                          EGP
+                        </span>
+                      </span>
+                    ) : (
+                      <span className="newPrice">{product.price} EGP</span>
+                    )}
+                  </span>
+                  <button className="btn">Add to Cart</button>
+                </div>
+              </div>
+            </Link>
+          </div>
+        );
+      })}
+    </div>
+  );
+  // if (!pageItems || pageItems.length === 0) {
+  //   return <div className="itemsContainer">No related books available.</div>;
+  // }
+  // pageItems.length = 5;
+  // return (
+  //   <div className="itemsContainer">
+  //     <List
+  //       className="allItems"
+  //       grid={{
+  //         gutter: 10,
+  //         xs: 2,
+  //         sm: 3,
+  //         md: 3,
+  //         lg: 4,
+  //         xl: 5,
+  //         xxl: 5,
+  //       }}
+  //       dataSource={pageItems.filter(Boolean)} // Remove any `null` or `undefined` items
+  //       renderItem={(product, index) => {
+  //         if (!product || !product.title) {
+  //           console.warn("Invalid product:", product);
+  //           return null; // Skip invalid entries
+  //         }
+  //         return (
+  //           <Link
+  //             key={product.title || index} // Fallback to `index` if `title` is missing
+  //             to="/product"
+  //             onClick={() => {
+  //               setItemToDisplay(product); // Pass a single product
+  //               window.localStorage.setItem("product", JSON.stringify(product));
+  //               window.location.reload();
+  //             }}
+  //           >
+  //             <div className="card">
+  //               <div className="cover">
+  //                 <div className="pag">
+  //                   {product.discount && (
+  //                     <span className="badge">-{product.discoutRate}%</span>
+  //                   )}
+  //                   <span className="fav">
+  //                     <HeartOutlined />
+  //                   </span>
+  //                 </div>
+  //                 <img
+  //                   className="img"
+  //                   src={product.img}
+  //                   alt={product.title || "Product"}
+  //                 />
+  //               </div>
+  //               <div className="details">
+  //                 <div className="h3">{product.title || "Untitled"}</div>
+  //                 <span className="price">
+  //                   {product.discount ? (
+  //                     <span>
+  //                       <span className="oldPrice">{product.price} EGP</span>
+  //                       <span className="newPrice">
+  //                         {(
+  //                           product.price -
+  //                           (product.discoutRate / 100) * product.price
+  //                         ).toFixed(0)}{" "}
+  //                         EGP
+  //                       </span>
+  //                     </span>
+  //                   ) : (
+  //                     <span className="newPrice">{product.price} EGP</span>
+  //                   )}
+  //                 </span>
+  //                 <button className="btn">Add to Cart</button>
+  //               </div>
+  //             </div>
+  //           </Link>
+  //         );
+  //       }}
+  //     />
+  //   </div>
+  // );
 }

@@ -29,7 +29,7 @@ import {
   Space,
 } from "antd";
 // import Link from "antd/es/typography/Link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 export default function Header({
   navigate,
@@ -135,7 +135,7 @@ export default function Header({
             Home
           </Link>
           <Link
-            href="#"
+            to={"/soft"}
             className={navigate === "soft" && "link active"}
             onClick={() => {
               setNavigate("soft");
@@ -314,7 +314,7 @@ function ToggleDrawer({
             Home
           </Link>
           <Link
-            href="#"
+            to={"/soft"}
             className={navigate === "soft" && "link active"}
             onClick={() => {
               setNavigate("soft");

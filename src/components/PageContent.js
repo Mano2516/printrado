@@ -7,6 +7,8 @@ export default function PageContent({
   setElements,
   itemToDisplay,
   setItemToDisplay,
+  setPageItems,
+  pageItems,
 }) {
   return (
     <div style={{ maxWidth: "100%" }} className="container">
@@ -18,6 +20,8 @@ export default function PageContent({
           setElements={setElements}
           itemToDisplay={itemToDisplay}
           setItemToDisplay={setItemToDisplay}
+          setPageItems={setPageItems}
+          pageItems={pageItems}
         />
       </div>
     </div>

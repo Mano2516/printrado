@@ -282,3 +282,180 @@
   font-size: 15px;
   color: #777;
 }
+
+.ItemsContainer {
+  margin-top: 30px;
+  margin: 30 auto;
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .ItemsContainer {
+    gap: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .ItemsContainer {
+    gap: 10px;
+  }
+}
+.ItemsContainer .allItems {
+  margin: 0 auto;
+}
+.ItemsContainer .allItems .card {
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 205px;
+  padding: 0 0 10px;
+  height: 370px;
+  border-radius: 14px;
+  margin-bottom: 30px;
+}
+@media (max-width: 768px) {
+  .ItemsContainer .allItems .card {
+    width: 160px;
+    height: 270px;
+    margin-bottom: 60px;
+  }
+}
+.ItemsContainer .allItems .card .cover {
+  position: relative;
+}
+.ItemsContainer .allItems .card .cover .pag {
+  position: absolute;
+  top: 10px;
+  width: 95%;
+}
+.ItemsContainer .allItems .card .cover .pag .badge {
+  background-color: rgb(237, 156, 75);
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 14px;
+  float: left;
+}
+.ItemsContainer .allItems .card .cover .pag .fav {
+  color: #767676;
+  font-size: 22px;
+  float: right;
+}
+.ItemsContainer .allItems .card .cover .img {
+  width: 100%;
+  margin: 0 auto;
+}
+.ItemsContainer .allItems .card .details {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  padding: 0 10px 10px;
+  position: relative;
+  background-color: #fff;
+  margin-top: 10px;
+  height: 80px;
+  z-index: 200;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 20px;
+}
+.ItemsContainer .allItems .card .details .h3 {
+  color: #000;
+  margin-top: 0px;
+  font-size: 16px;
+  width: 100%;
+  text-decoration: none;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+.ItemsContainer .allItems .card .details .h3:hover {
+  color: #767676;
+}
+.ItemsContainer .allItems .card .details .price {
+  margin-top: -5px;
+  display: block;
+  margin-bottom: 10px;
+}
+.ItemsContainer .allItems .card .details .price .oldPrice {
+  color: #767676;
+  font-size: 15px;
+  text-decoration: line-through;
+  margin-right: 15px;
+}
+.ItemsContainer .allItems .card .details .price .newPrice {
+  color: rgb(237, 156, 75);
+  font-size: 18px;
+  font-weight: bold;
+}
+.ItemsContainer .allItems .card .details .btn {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background-color: rgb(237, 156, 75);
+  color: #fff;
+  border: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: none;
+}
+.ItemsContainer .allItems .card .details .btn:hover {
+  background-color: #e8831d;
+}
+.ItemsContainer .allItems .card:hover {
+  margin-bottom: 20px;
+  height: 400px;
+}
+@media (max-width: 768px) {
+  .ItemsContainer .allItems .card:hover {
+    height: 350px;
+  }
+}
+.ItemsContainer .allItems .card:hover .details {
+  margin-top: -40px;
+  margin-bottom: 10px;
+  height: 140px;
+}
+.ItemsContainer .allItems .card:hover .details .btn {
+  display: block;
+}
+.ItemsContainer .allItems .ant-list-pagination {
+  margin-top: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: rgb(237, 156, 75);
+}
+.ItemsContainer .allItems .ant-list-pagination .ant-pagination-item-active {
+  border-color: rgb(237, 156, 75);
+  background-color: rgb(237, 156, 75);
+}
+.ItemsContainer .allItems .ant-list-pagination .ant-pagination-item-active a {
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+}

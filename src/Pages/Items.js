@@ -3,7 +3,6 @@ import { List } from "antd";
 import { useEffect, useState } from "react";
 import "../css/items.css";
 import { Link } from "react-router-dom";
-import { HomePageElements, SoftwareBooks } from "../pagesContent/HomePageEle";
 
 export default function Items({
   elements,
@@ -11,12 +10,9 @@ export default function Items({
   setNavigate,
   setItemToDisplay,
   itemToDisplay,
+  it,
 }) {
-  const [items, setItems] = useState(HomePageElements);
-  useEffect(() => {
-    elements === "home" && setItems(HomePageElements);
-    elements === "soft" && setItems(SoftwareBooks);
-  });
+  const [items, setItems] = useState(it);
   return (
     <div className="mainContainer">
       <div className="Content">
@@ -42,16 +38,15 @@ export default function Items({
           renderItem={(product) => {
             return (
               <Link
+                key={product.title}
                 to={"/product"}
                 onClick={() => {
-                  setItemToDisplay(product); // Update the state (asynchronous)
+                  setItemToDisplay(product);
                   setNavigate("product");
-
-                  // Use 'product' directly instead of 'itemToDisplay'
                   const item = JSON.stringify(product);
                   window.localStorage.setItem("product", item);
-                  console.log(item); // Log the current product being added
-                  console.log(window.localStorage.getItem("product")); // Log what's in localStorage
+                  // console.log(item);
+                  // console.log(window.localStorage.getItem("product"));
                 }}
               >
                 <div className="card">

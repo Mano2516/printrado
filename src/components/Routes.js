@@ -1,9 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import Login from "../Pages/Login";
-import Items from "../Pages/Items";
 import About from "../Pages/About";
 import Contact from "../Pages/Contact";
 import DisplayItem from "../Pages/DisplayItem";
+import HomePage from "../Pages/HomePage";
+import SoftWarePage from "../Pages/SoftWare";
 import { useState } from "react";
 
 export default function AppRoutes({
@@ -13,19 +14,38 @@ export default function AppRoutes({
   setElements,
   setItemToDisplay,
   itemToDisplay,
+  setPageItems,
+  pageItems,
 }) {
   return (
     <Routes>
       <Route
         path="/"
         element={
-          <Items
+          <HomePage
             navigate={navigate}
             setNavigate={setNavigate}
             elements={elements}
             setElements={setElements}
             setItemToDisplay={setItemToDisplay}
             itemToDisplay={itemToDisplay}
+            pageItems={pageItems}
+            setPageItems={setPageItems}
+          />
+        }
+      />
+      <Route
+        path="/soft"
+        element={
+          <SoftWarePage
+            navigate={navigate}
+            setNavigate={setNavigate}
+            elements={elements}
+            setElements={setElements}
+            setItemToDisplay={setItemToDisplay}
+            itemToDisplay={itemToDisplay}
+            pageItems={pageItems}
+            setPageItems={setPageItems}
           />
         }
       />
@@ -51,6 +71,8 @@ export default function AppRoutes({
             itemToDisplay={itemToDisplay}
             navigate={navigate}
             setNavigate={setNavigate}
+            pageItems={pageItems}
+            setPageItems={setPageItems}
           />
         }
       />
