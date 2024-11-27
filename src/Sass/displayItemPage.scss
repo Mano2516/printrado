@@ -3,6 +3,9 @@
   width: 100%;
   .cont {
     width: 80%;
+    @media (max-width: 768px) {
+      width: 90%;
+    }
     margin: 0 auto;
     padding: 70px 0;
     display: flex;
@@ -243,7 +246,7 @@
   // flex-wrap: wrap;
   margin: 30 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   width: 100%;
   // width: 90%;
   @media (max-width: 768px) {
@@ -253,7 +256,14 @@
     gap: 10px;
   }
   .allItems {
+    width: fit-content;
+    max-width: 225px;
     margin: 0 auto;
+    @media (max-width: 768px) {
+      width: 160px;
+      height: 270px;
+      margin-bottom: 60px;
+    }
     .card {
       box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
       transition: 0.3s;
@@ -302,6 +312,10 @@
         .img {
           width: 100%;
           margin: 0 auto;
+          max-width: 100%;
+          img {
+            max-width: 100%;
+          }
         }
       }
       .details {

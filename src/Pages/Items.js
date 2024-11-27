@@ -1,5 +1,5 @@
 import { HeartOutlined } from "@ant-design/icons";
-import { List } from "antd";
+import { Alert, List } from "antd";
 import { useEffect, useState } from "react";
 import "../css/items.css";
 import { Link } from "react-router-dom";
@@ -11,8 +11,23 @@ export default function Items({
   setItemToDisplay,
   itemToDisplay,
   it,
+  nav,
+  cartItems,
+  setCartItems,
+  setItemAddedToCart,
 }) {
   const [items, setItems] = useState(it);
+
+  useEffect(() => {
+    try {
+      const savedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
+      setCartItems(savedCart);
+    } catch (error) {
+      console.error("Failed to parse cart items from localStorage:", error);
+      setCartItems([]); // Default to an empty cart
+    }
+  }, []);
+  // window.localStorage.clear();
   return (
     <div className="mainContainer">
       <div className="Content">
@@ -37,18 +52,7 @@ export default function Items({
           dataSource={items}
           renderItem={(product) => {
             return (
-              <Link
-                key={product.title}
-                to={"/product"}
-                onClick={() => {
-                  setItemToDisplay(product);
-                  setNavigate("product");
-                  const item = JSON.stringify(product);
-                  window.localStorage.setItem("product", item);
-                  // console.log(item);
-                  // console.log(window.localStorage.getItem("product"));
-                }}
-              >
+              <Link>
                 <div className="card">
                   <div className="cover">
                     <div className="pag">
@@ -59,31 +63,86 @@ export default function Items({
                         <HeartOutlined />
                       </span>
                     </div>
-                    <img
-                      className="img"
-                      src={product.img}
-                      alt={product.title}
-                    />
+                    <Link
+                      key={product.title}
+                      to={"/product"}
+                      onClick={() => {
+                        setItemToDisplay(product);
+                        setNavigate(nav);
+                        const item = JSON.stringify(product);
+                        window.localStorage.setItem("product", item);
+                        // console.log(item);
+                        // console.log(window.localStorage.getItem("product"));
+                      }}
+                    >
+                      <img
+                        className="img"
+                        src={product.img}
+                        alt={product.title}
+                      />
+                    </Link>
                   </div>
                   <div className="details">
-                    <div className="h3">{product.title}</div>
-                    <span className="price">
-                      {product.discount ? (
-                        <span>
-                          <sapn className="oldPrice">{product.price} EGP</sapn>
-                          <span className="newPrice">
-                            {(
-                              product.price -
-                              (product.discoutRate / 100) * product.price
-                            ).toFixed(0)}{" "}
-                            EGP
+                    <Link
+                      key={product.title}
+                      to={"/product"}
+                      onClick={() => {
+                        setItemToDisplay(product);
+                        setNavigate(nav);
+                        const item = JSON.stringify(product);
+                        window.localStorage.setItem("product", item);
+                        // console.log(item);
+                        // console.log(window.localStorage.getItem("product"));
+                      }}
+                    >
+                      <div className="h3">{product.title}</div>
+                      <span className="price">
+                        {product.discount ? (
+                          <span>
+                            <sapn className="oldPrice">
+                              {product.price} EGP
+                            </sapn>
+                            <span className="newPrice">
+                              {(
+                                product.price -
+                                (product.discoutRate / 100) * product.price
+                              ).toFixed(0)}{" "}
+                              EGP
+                            </span>
                           </span>
-                        </span>
-                      ) : (
-                        <span className="newPrice">{product.price} EGP</span>
-                      )}
-                    </span>
-                    <button className="btn">Add to Cart</button>
+                        ) : (
+                          <span className="newPrice">{product.price} EGP</span>
+                        )}
+                      </span>
+                    </Link>
+                    <button
+                      className="btn"
+                      onClick={() => {
+                        window.scrollTo({
+                          top: 0,
+                          behavior: "smooth", // Smooth scrolling
+                        });
+                        const newCartItems = [...cartItems];
+                        const itemExists = newCartItems.some(
+                          (item) => item.title === product.title
+                        );
+
+                        if (!itemExists) {
+                          newCartItems.push({ ...product, quantity: 1 });
+                          window.localStorage.setItem(
+                            "cartItems",
+                            JSON.stringify(newCartItems)
+                          );
+                          setCartItems(newCartItems);
+                          setItemAddedToCart("done");
+                        } else {
+                          setItemAddedToCart("not");
+                        }
+                        // console.log(cartItems);
+                      }}
+                    >
+                      Add to Cart
+                    </button>
                   </div>
                 </div>
               </Link>

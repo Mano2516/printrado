@@ -1,33 +1,33 @@
-import Items from "./Items";
-import { HomePageElements } from "../pagesContent/HomePageEle";
 import { Alert } from "antd";
+import { CyberBooks } from "../pagesContent/CyberBooks";
+import Items from "./Items";
 import { useEffect, useState } from "react";
 
-export default function HomePage({
+export default function CyberPage({
   navigate,
   setNavigate,
   elements,
   setElements,
   setItemToDisplay,
   itemToDisplay,
-  cartItems,
   setPageItems,
   pageItems,
+  cartItems,
   setCartItems,
-  setItemAddedToCart,
   itemAddedToCart,
+  setItemAddedToCart,
 }) {
-  setPageItems(HomePageElements);
+  // const [eles, setEles] = useState(HomePageElements);
+  setPageItems(CyberBooks);
   const [showAlert, setShowAlert] = useState(false);
   const [AlretAlreday, setAlretAlreday] = useState(false);
   useEffect(() => {
     if (itemAddedToCart === "done") {
       setShowAlert(true);
       const timer = setTimeout(() => {
-        setShowAlert(false);
         setItemAddedToCart("");
+        setShowAlert(false);
       }, 3000);
-
       return () => clearTimeout(timer);
     }
   }, [itemAddedToCart]);
@@ -35,8 +35,8 @@ export default function HomePage({
     if (itemAddedToCart === "not") {
       setAlretAlreday(true);
       const timer0 = setTimeout(() => {
-        setAlretAlreday(false);
         setItemAddedToCart("");
+        setAlretAlreday(false);
       }, 3000);
       return () => clearTimeout(timer0);
     }
@@ -71,18 +71,18 @@ export default function HomePage({
         />
       )}
       <Items
-        it={HomePageElements}
+        it={CyberBooks}
         navigate={navigate}
         setNavigate={setNavigate}
         elements={elements}
         setElements={setElements}
         setItemToDisplay={setItemToDisplay}
         itemToDisplay={itemToDisplay}
-        nav="home"
+        pageItems={pageItems}
+        nav="cyber"
         cartItems={cartItems}
         setCartItems={setCartItems}
         setItemAddedToCart={setItemAddedToCart}
-        // pageItems={pageItems}
       />
     </div>
   );

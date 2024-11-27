@@ -1,23 +1,23 @@
-import Items from "./Items";
-import { HomePageElements } from "../pagesContent/HomePageEle";
 import { Alert } from "antd";
+import { ManagementBooks } from "../pagesContent/ManagmentBooks";
+import Items from "./Items";
 import { useEffect, useState } from "react";
 
-export default function HomePage({
+export default function ManagmentPage({
   navigate,
   setNavigate,
   elements,
   setElements,
   setItemToDisplay,
   itemToDisplay,
-  cartItems,
   setPageItems,
   pageItems,
+  cartItems,
   setCartItems,
-  setItemAddedToCart,
   itemAddedToCart,
+  setItemAddedToCart,
 }) {
-  setPageItems(HomePageElements);
+  // const [eles, setEles] = useState(HomePageElements);
   const [showAlert, setShowAlert] = useState(false);
   const [AlretAlreday, setAlretAlreday] = useState(false);
   useEffect(() => {
@@ -27,7 +27,6 @@ export default function HomePage({
         setShowAlert(false);
         setItemAddedToCart("");
       }, 3000);
-
       return () => clearTimeout(timer);
     }
   }, [itemAddedToCart]);
@@ -42,6 +41,7 @@ export default function HomePage({
     }
   }, [itemAddedToCart]);
 
+  setPageItems(ManagementBooks);
   return (
     <div>
       {showAlert && (
@@ -71,18 +71,18 @@ export default function HomePage({
         />
       )}
       <Items
-        it={HomePageElements}
+        it={ManagementBooks}
         navigate={navigate}
         setNavigate={setNavigate}
         elements={elements}
         setElements={setElements}
         setItemToDisplay={setItemToDisplay}
         itemToDisplay={itemToDisplay}
-        nav="home"
+        pageItems={pageItems}
+        nav="management"
         cartItems={cartItems}
         setCartItems={setCartItems}
         setItemAddedToCart={setItemAddedToCart}
-        // pageItems={pageItems}
       />
     </div>
   );

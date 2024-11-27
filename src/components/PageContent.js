@@ -9,6 +9,8 @@ export default function PageContent({
   setItemToDisplay,
   setPageItems,
   pageItems,
+  cartItems,
+  setCartItems,
 }) {
   return (
     <div style={{ maxWidth: "100%" }} className="container">
@@ -22,6 +24,8 @@ export default function PageContent({
           setItemToDisplay={setItemToDisplay}
           setPageItems={setPageItems}
           pageItems={pageItems}
+          cartItems={cartItems}
+          setCartItems={setCartItems}
         />
       </div>
     </div>

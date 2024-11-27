@@ -452,3 +452,117 @@
     }
   }
 }
+.all {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  .Elements {
+    .cartItem {
+      height: 100px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      gap: 20px;
+      padding-top: 10px;
+      .img > img {
+        max-height: 100px;
+      }
+      .info {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+        text-align: left;
+        font-size: 15px;
+        font-family: $text-font;
+        .tit {
+          font-weight: 700;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .remove {
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.451);
+          }
+        }
+        .newPrice {
+          color: $mainColor;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+  .lower {
+    .total {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      font-size: 23px;
+      font-family: $title-font-family;
+      font-weight: 600;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      .totalPrice {
+        color: $mainColor;
+        font-weight: 700;
+      }
+    }
+    .remain {
+      padding-top: 20px;
+      font-size: 15px;
+      font-family: $text-font;
+      width: 80%;
+      color: #777;
+      .value {
+        color: $mainColor;
+        font-weight: 600;
+        font-size: 16px;
+      }
+    }
+    .actionBtns {
+      padding-top: 20px;
+      padding-inline: 10px;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      gap: 10px;
+      > button {
+        width: 100%;
+        border-radius: 35px;
+        height: 35px;
+        border: none;
+        cursor: pointer;
+        font-size: 13px;
+        font-family: $text-font;
+        font-weight: 600;
+        transition: 0.3s;
+        &.view {
+          color: #333;
+          background-color: #f7f7f7;
+          &:hover {
+            background-color: darken(#f7f7f7, 10%);
+          }
+        }
+        &.check {
+          color: #fff;
+          background-color: $mainColor;
+          &:hover {
+            background-color: darken($mainColor, 10%);
+          }
+        }
+      }
+    }
+  }
+}

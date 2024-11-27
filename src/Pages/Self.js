@@ -1,23 +1,24 @@
-import Items from "./Items";
-import { HomePageElements } from "../pagesContent/HomePageEle";
-import { Alert } from "antd";
 import { useEffect, useState } from "react";
+import { SelfBooks } from "../pagesContent/SelfBooks";
+import Items from "./Items";
+import { Alert } from "antd";
 
-export default function HomePage({
+export default function SelfPage({
   navigate,
   setNavigate,
   elements,
   setElements,
   setItemToDisplay,
   itemToDisplay,
-  cartItems,
   setPageItems,
   pageItems,
+  cartItems,
   setCartItems,
-  setItemAddedToCart,
   itemAddedToCart,
+  setItemAddedToCart,
 }) {
-  setPageItems(HomePageElements);
+  // const [eles, setEles] = useState(HomePageElements);
+  setPageItems(SelfBooks);
   const [showAlert, setShowAlert] = useState(false);
   const [AlretAlreday, setAlretAlreday] = useState(false);
   useEffect(() => {
@@ -27,7 +28,6 @@ export default function HomePage({
         setShowAlert(false);
         setItemAddedToCart("");
       }, 3000);
-
       return () => clearTimeout(timer);
     }
   }, [itemAddedToCart]);
@@ -71,18 +71,18 @@ export default function HomePage({
         />
       )}
       <Items
-        it={HomePageElements}
+        it={SelfBooks}
         navigate={navigate}
         setNavigate={setNavigate}
         elements={elements}
         setElements={setElements}
         setItemToDisplay={setItemToDisplay}
         itemToDisplay={itemToDisplay}
-        nav="home"
+        pageItems={pageItems}
+        nav="self"
         cartItems={cartItems}
         setCartItems={setCartItems}
         setItemAddedToCart={setItemAddedToCart}
-        // pageItems={pageItems}
       />
     </div>
   );

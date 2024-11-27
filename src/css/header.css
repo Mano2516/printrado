@@ -548,3 +548,158 @@
 .cartDrawer .content .btn:hover {
   background-color: #e8831d;
 }
+
+.all {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+}
+.all .Elements .cartItem {
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  gap: 20px;
+  padding-top: 10px;
+}
+.all .Elements .cartItem .img > img {
+  max-height: 100px;
+}
+.all .Elements .cartItem .info {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  text-align: left;
+  font-size: 15px;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+}
+.all .Elements .cartItem .info .tit {
+  font-weight: 700;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.all .Elements .cartItem .info .tit .remove {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.451);
+}
+.all .Elements .cartItem .info .newPrice {
+  color: rgb(237, 156, 75);
+  font-weight: 700;
+}
+.all .lower .total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  font-size: 23px;
+  font-family: "Urbanist", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.all .lower .total .totalPrice {
+  color: rgb(237, 156, 75);
+  font-weight: 700;
+}
+.all .lower .remain {
+  padding-top: 20px;
+  font-size: 15px;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  width: 80%;
+  color: #777;
+}
+.all .lower .remain .value {
+  color: rgb(237, 156, 75);
+  font-weight: 600;
+  font-size: 16px;
+}
+.all .lower .actionBtns {
+  padding-top: 20px;
+  padding-inline: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+.all .lower .actionBtns > button {
+  width: 100%;
+  border-radius: 35px;
+  height: 35px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.all .lower .actionBtns > button.view {
+  color: #333;
+  background-color: #f7f7f7;
+}
+.all .lower .actionBtns > button.view:hover {
+  background-color: #dedede;
+}
+.all .lower .actionBtns > button.check {
+  color: #fff;
+  background-color: rgb(237, 156, 75);
+}
+.all .lower .actionBtns > button.check:hover {
+  background-color: #e8831d;
+}

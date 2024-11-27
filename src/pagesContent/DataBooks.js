@@ -1,0 +1,103 @@
+export const DataBooks = [
+  {
+    title: "Hands-On Machine Learning with Scikit-",
+    price: 679,
+    discount: true,
+    discoutRate: 44,
+    img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2022/10/12225448/Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-TensorFlow-205x269.jpg.webp",
+    quantity: 1,
+  },
+
+  {
+    title: "Practical Statistics for Data Scientists",
+    price: 359,
+    discount: true,
+    discoutRate: 50,
+    img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2021/02/12234141/Practical-Statistics-for-Data-Scientists-205x269.jpg.webp",
+    quantity: 1,
+  },
+
+  {
+    title: "Storytelling with Data",
+    price: 309,
+    discount: true,
+    discoutRate: 29,
+    img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2021/03/12233300/Storytelling-with-Data-scaled-205x257.jpg.webp",
+    quantity: 1,
+  },
+
+  {
+    title: "Mathematics for Machine Learning",
+    price: 389,
+    discount: true,
+    discoutRate: 51,
+    img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2021/02/12234200/Mathematics-for-Machine-Learning-190x275.png.webp",
+    quantity: 1,
+  },
+
+  {
+    title: "Fundamentals of Data Engineering",
+    price: 409,
+    discount: true,
+    discoutRate: 31,
+    img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2022/08/12230054/Fundamentals-of-Data-Engineering-205x269.jpg.webp",
+    quantity: 1,
+  },
+
+  {
+    title: "Thinking with Data",
+    price: 199,
+    discount: true,
+    discoutRate: 35,
+    img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2021/02/12234057/Thinking-with-Data-183x275.jpg.webp",
+    quantity: 1,
+  },
+  {
+    title: "Head First Data Analysis",
+    price: 429,
+    discount: true,
+    discoutRate: 41,
+    img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2021/02/12234050/Head-First-Data-Analysis-205x237.jpg.webp",
+    quantity: 1,
+  },
+  {
+    title: "Data Science from Scratch",
+    price: 379,
+    discount: true,
+    discoutRate: 31,
+    img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2021/02/12234054/Data-Science-from-Scratch-scaled-205x269.jpg.webp",
+    quantity: 1,
+  },
+  {
+    title: "Essential Math for Data Science",
+    price: 349,
+    discount: true,
+    discoutRate: 31,
+    img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2022/06/12230417/Essential-Math-for-Data-Science-205x269.jpg.webp",
+    quantity: 1,
+  },
+  {
+    title: "Grokking Machine Learning",
+    price: 449,
+    discount: true,
+    discoutRate: 44,
+    img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2021/11/12232013/Grokking-Machine-Learning-205x257.jpg.webp",
+    quantity: 1,
+  },
+  {
+    title: "Python for Data Analysis",
+    price: 489,
+    discount: true,
+    discoutRate: 34,
+    img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2022/10/12225524/Python-for-Data-Analysis-205x269.jpg.webp",
+    quantity: 1,
+  },
+  {
+    title: "Deep Learning",
+    price: 609,
+    discount: true,
+    discoutRate: 42,
+    img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2021/02/12234107/Deep-Learning-205x273.jpg.webp",
+    quantity: 1,
+  },
+];

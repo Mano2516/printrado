@@ -26,6 +26,7 @@ import {
   Form,
   Image,
   Input,
+  Progress,
   Space,
 } from "antd";
 // import Link from "antd/es/typography/Link";
@@ -36,10 +37,23 @@ export default function Header({
   setNavigate,
   setElements,
   elements,
+  cartItems,
+  setCartItems,
 }) {
   const [toogleDrawer, setToogleDrawer] = useState(false);
   const [loginDrawer, setLoginDrawer] = useState(false);
   const [cartDrawer, setCartDrawer] = useState(false);
+
+  useEffect(() => {
+    try {
+      const savedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
+      setCartItems(savedCart);
+    } catch (error) {
+      console.error("Failed to parse cart items from localStorage:", error);
+      setCartItems([]); // Default to an empty cart
+    }
+  }, []);
+  // console.log(cartItems);
   return (
     <div className="header">
       <div className="container">
@@ -103,7 +117,7 @@ export default function Header({
               Login / Register
             </button>
             <Badge
-              count={5}
+              count={0 || cartItems.length}
               style={{
                 marginLeft: 10,
                 color: "rgb(237, 156, 75)",
@@ -117,7 +131,21 @@ export default function Header({
                 }}
               >
                 <ShoppingCartOutlined />
-                <span className="value"> 200 </span>
+                <span className="value">
+                  {" "}
+                  {cartItems
+                    .reduce((acc, curr) => {
+                      return (
+                        acc +
+                        (
+                          curr.price -
+                          (curr.discoutRate / 100) * curr.price
+                        ).toFixed(0) *
+                          curr.quantity
+                      );
+                    }, 0)
+                    .toFixed(0)}{" "}
+                </span>
                 <span className="currency">EGP</span>
               </button>
             </Badge>
@@ -145,7 +173,7 @@ export default function Header({
             Software Engineering
           </Link>
           <Link
-            href="#"
+            to="/data"
             className={navigate === "data" && "link active"}
             onClick={() => {
               setNavigate("data");
@@ -155,7 +183,7 @@ export default function Header({
             Data Science
           </Link>
           <Link
-            href="#"
+            to="/tech"
             className={navigate === "tech" && "link active"}
             onClick={() => {
               setNavigate("tech");
@@ -165,7 +193,7 @@ export default function Header({
             Technology
           </Link>
           <Link
-            href="#"
+            to="/cyber"
             className={navigate === "cyber" && "link active"}
             onClick={() => {
               setNavigate("cyber");
@@ -175,7 +203,7 @@ export default function Header({
             Cybersecurity
           </Link>
           <Link
-            href="#"
+            to="/management"
             className={navigate === "management" && "link active"}
             onClick={() => {
               setNavigate("management");
@@ -185,7 +213,7 @@ export default function Header({
             Management
           </Link>
           <Link
-            href="#"
+            to="/self"
             className={navigate === "self" && "link active"}
             onClick={() => {
               setNavigate("self");
@@ -225,15 +253,17 @@ export default function Header({
             <MenuOutlined />
           </div>
           <div className="logo">
-            <Image
-              src={logo}
-              preview={false}
-              style={{ height: 50, width: 80 }}
-            />
+            <Link to="/">
+              <Image
+                src={logo}
+                preview={false}
+                style={{ height: 50, width: 80 }}
+              />
+            </Link>
           </div>
           <Badge
             className="cart"
-            count={5}
+            count={cartItems.length}
             style={{
               color: "#fff",
               backgroundColor: "rgb(237, 156, 75)",
@@ -273,7 +303,12 @@ export default function Header({
         setNavigate={setNavigate}
         setCart={setCartDrawer}
       />
-      <Cart openCart={cartDrawer} setIsOpen={setCartDrawer} />
+      <Cart
+        openCart={cartDrawer}
+        setIsOpen={setCartDrawer}
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+      />
     </div>
   );
 }
@@ -325,7 +360,7 @@ function ToggleDrawer({
             Software Engineering
           </Link>
           <Link
-            href="#"
+            to="/data"
             className={navigate === "data" && "link active"}
             onClick={() => {
               setNavigate("data");
@@ -336,7 +371,7 @@ function ToggleDrawer({
             Data Science
           </Link>
           <Link
-            href="#"
+            to="/tech"
             className={navigate === "tech" && "link active"}
             onClick={() => {
               setNavigate("tech");
@@ -347,7 +382,7 @@ function ToggleDrawer({
             Technology
           </Link>
           <Link
-            href="#"
+            to="/cyber"
             className={navigate === "cyber" && "link active"}
             onClick={() => {
               setNavigate("cyber");
@@ -358,7 +393,7 @@ function ToggleDrawer({
             Cybersecurity
           </Link>
           <Link
-            href="#"
+            to="/management"
             className={navigate === "management" && "link active"}
             onClick={() => {
               setNavigate("management");
@@ -369,7 +404,7 @@ function ToggleDrawer({
             Management
           </Link>
           <Link
-            href="#"
+            to="/management"
             className={navigate === "self" && "link active"}
             onClick={() => {
               setNavigate("self");
@@ -557,7 +592,7 @@ function Nav({ openLogin, setOpenLogin, setCart }) {
   );
 }
 
-function Cart({ openCart, setIsOpen }) {
+function Cart({ openCart, setIsOpen, cartItems, setCartItems }) {
   const navigate = useNavigate();
   return (
     <div>
@@ -572,22 +607,179 @@ function Cart({ openCart, setIsOpen }) {
         }
         className="cartDrawer"
       >
-        <div className="content">
-          <div className="icon">
-            <ShoppingCartOutlined />
+        {cartItems.length < 1 && (
+          <div className="content">
+            <div className="icon">
+              <ShoppingCartOutlined />
+            </div>
+            <div className="txt">Your cart is empty</div>
+            <button
+              onClick={() => {
+                navigate("/");
+                setIsOpen(false);
+              }}
+              className="btn"
+            >
+              return to shop
+            </button>
           </div>
-          <div className="txt">Your cart is empty</div>
-          <button
-            onClick={() => {
-              navigate("/");
-              setIsOpen(false);
-            }}
-            className="btn"
-          >
-            return to shop
-          </button>
-        </div>
+        )}
+        {cartItems.length > 0 && (
+          <DisplayItemsInCart
+            cartItems={cartItems}
+            setCartItems={setCartItems}
+          />
+        )}
       </Drawer>
+    </div>
+  );
+}
+function DisplayItemsInCart({ cartItems, setCartItems }) {
+  return (
+    <div className="all">
+      <div className="Elements">
+        {cartItems.map((item, index) => {
+          return (
+            <div className="cartItem">
+              <div className="img">
+                <img src={item.img} alt={item.title} />
+              </div>
+              <div className="info">
+                <div className="tit">
+                  <span>{item.title}</span>
+                  <span
+                    className="remove"
+                    onClick={() => {
+                      const newCartItems = cartItems.filter(
+                        (i) => i.title !== item.title
+                      );
+                      setCartItems(newCartItems);
+                      window.localStorage.setItem(
+                        "cartItems",
+                        JSON.stringify(newCartItems)
+                      );
+                    }}
+                  >
+                    {" "}
+                    X
+                  </span>
+                </div>
+                <div className="price">
+                  {item.quantity} X{" "}
+                  {item.discount ? (
+                    <span>
+                      <span className="newPrice">
+                        {(
+                          item.price -
+                          (item.discoutRate / 100) * item.price
+                        ).toFixed(0)}{" "}
+                        EGP
+                      </span>
+                    </span>
+                  ) : (
+                    <span className="newPrice">{item.price} EGP</span>
+                  )}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="lower">
+        <div className="total">
+          <span className="totalTitle">Subtotal:</span>
+          <span className="totalPrice">
+            {cartItems
+              .reduce((acc, curr) => {
+                return (
+                  acc +
+                  (curr.price - (curr.discoutRate / 100) * curr.price).toFixed(
+                    0
+                  ) *
+                    curr.quantity
+                );
+              }, 0)
+              .toFixed(0)}{" "}
+            EGP
+          </span>
+        </div>
+        <div className="btns">
+          <div className="remain">
+            {cartItems
+              .reduce((acc, curr) => {
+                return (
+                  acc +
+                  (curr.price - (curr.discoutRate / 100) * curr.price).toFixed(
+                    0
+                  ) *
+                    curr.quantity
+                );
+              }, 0)
+              .toFixed(0) < 2200 && (
+              <>
+                {" "}
+                Add{" "}
+                <span className="value">
+                  {2200 -
+                    cartItems
+                      .reduce((acc, curr) => {
+                        return (
+                          acc +
+                          (
+                            curr.price -
+                            (curr.discoutRate / 100) * curr.price
+                          ).toFixed(0) *
+                            curr.quantity
+                        );
+                      }, 0)
+                      .toFixed(0)}{" "}
+                  EGP{" "}
+                </span>
+                to cart and get free shipping!
+              </>
+            )}
+            {cartItems
+              .reduce((acc, curr) => {
+                return (
+                  acc +
+                  (curr.price - (curr.discoutRate / 100) * curr.price).toFixed(
+                    0
+                  ) *
+                    curr.quantity
+                );
+              }, 0)
+              .toFixed(0) >= 2200 && (
+              <>Your order qualifies for free shipping!</>
+            )}
+
+            <Progress
+              percent={
+                (cartItems
+                  .reduce((acc, curr) => {
+                    return (
+                      acc +
+                      (
+                        curr.price -
+                        (curr.discoutRate / 100) * curr.price
+                      ).toFixed(0) *
+                        curr.quantity
+                    );
+                  }, 0)
+                  .toFixed(0) /
+                  2200) *
+                100
+              }
+              showInfo={false}
+              strokeColor={"rgb(237, 156, 75)"}
+              status="active"
+            />
+          </div>
+          <div className="actionBtns">
+            <button className="view">View cart</button>
+            <button className="check">Checkout</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

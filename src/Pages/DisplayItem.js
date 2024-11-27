@@ -1,7 +1,7 @@
-import { Breadcrumb, Collapse, Divider, List } from "antd";
+import { Alert, Breadcrumb, Collapse, Divider, List } from "antd";
 import "../css/displayItemPage.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HeartOutlined } from "@ant-design/icons";
 export default function DisplayItem({
   itemToDisplay,
@@ -9,19 +9,49 @@ export default function DisplayItem({
   setItemToDisplay,
   setPageItems,
   pageItems,
+  setItemAddedToCart,
+  itemAddedToCart,
+  setCartItems,
+  cartItems,
 }) {
-  const product =
-    itemToDisplay || JSON.parse(window.localStorage.getItem("product"));
-  // const product = {
-  //   title: "Grokking Algorithms",
-  //   price: 339,
-  //   discount: true,
-  //   discoutRate: 56,
-  //   img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2024/02/12215955/Grokking-Algorithms-205x275.jpg.webp",
-  //   quantity: 1,
-  // };
+  var product;
+  if (localStorage.getItem("product")) {
+    product = JSON.parse(localStorage.getItem("product"));
+  }
+  const [showAlert, setShowAlert] = useState(false);
+  const [AlretAlreday, setAlretAlreday] = useState(false);
+  useEffect(() => {
+    try {
+      const savedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
+      setCartItems(savedCart);
+    } catch (error) {
+      console.error("Failed to parse cart items from localStorage:", error);
+      setCartItems([]); // Default to an empty cart
+    }
+  }, []);
+  // window.localStorage.clear();
+  useEffect(() => {
+    if (itemAddedToCart === "done") {
+      setShowAlert(true);
+      const timer = setTimeout(() => {
+        setShowAlert(false);
+        setItemAddedToCart("");
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [itemAddedToCart]);
+  useEffect(() => {
+    if (itemAddedToCart === "not") {
+      setAlretAlreday(true);
+      const timer0 = setTimeout(() => {
+        setAlretAlreday(false);
+        setItemAddedToCart("");
+      }, 3000);
+      return () => clearTimeout(timer0);
+    }
+  }, [itemAddedToCart]);
   const navigate = useNavigate();
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(product.quantity);
   const [choose, setChoose] = useState("des");
   const items = [
     {
@@ -43,24 +73,32 @@ export default function DisplayItem({
   return (
     <div className="mainContainer">
       <div className="cont">
-        {/* <div className="navigation">
-          <Breadcrumb
-            items={[
-              {
-                name: "Home",
-                title: "Home",
-                icon: "home",
-                className: "breadcrumb-item",
-                onClick: () => {
-                  navigate("/");
-                  // setNavigate("home");
-                  setNavigate("home");
-                },
-              },
-              { name: product.title, title: product.title },
-            ]}
+        {showAlert && (
+          <Alert
+            message="Item added to cart!"
+            type="success"
+            showIcon
+            style={{
+              width: "fit-content",
+              margin: "0 auto",
+              marginTop: 20,
+              position: "relative",
+            }}
           />
-        </div> */}
+        )}
+        {AlretAlreday && (
+          <Alert
+            message="Item already at cart!"
+            type="warning"
+            showIcon
+            style={{
+              width: "fit-content",
+              margin: "0 auto",
+              marginTop: 20,
+              position: "relative",
+            }}
+          />
+        )}
         <div className="DataSection">
           <div className="img">
             <img src={product.img} alt={product.title} />
@@ -91,7 +129,6 @@ export default function DisplayItem({
                     if (value > 1) {
                       const newValue = value - 1;
                       setValue(newValue);
-                      product.quantity = newValue;
                     }
                   }}
                 >
@@ -104,13 +141,40 @@ export default function DisplayItem({
                   onClick={() => {
                     const newValue = value + 1;
                     setValue(newValue);
-                    product.quantity = newValue;
                   }}
                 >
                   +
                 </button>
               </span>
-              <button className="addToCart">Add to cart</button>
+
+              <button
+                className="addToCart"
+                onClick={() => {
+                  window.scrollTo({
+                    top: 0,
+                    behavior: "smooth", // Smooth scrolling
+                  });
+                  const newCartItems = [...cartItems];
+                  const itemExists = newCartItems.some(
+                    (item) => item.title === product.title
+                  );
+
+                  if (!itemExists) {
+                    newCartItems.push({ ...product, quantity: value });
+                    window.localStorage.setItem(
+                      "cartItems",
+                      JSON.stringify(newCartItems)
+                    );
+                    setCartItems(newCartItems);
+                    setItemAddedToCart("done");
+                  } else {
+                    setItemAddedToCart("not");
+                  }
+                  // console.log(cartItems);
+                }}
+              >
+                Add to cart
+              </button>
               <button className="buyNow">Buy now</button>
               <div className="favEle">
                 <span className="favIcon">
@@ -168,6 +232,12 @@ export default function DisplayItem({
           setPageItems={setPageItems}
           setItemToDisplay={setItemToDisplay}
           setNavigate={setNavigate}
+          setItemAddedToCart={setItemAddedToCart}
+          itemAddedToCart={itemAddedToCart}
+          setCartItems={setCartItems}
+          cartItems={cartItems}
+          value={value}
+          setValue={setValue}
         />
       </div>
     </div>
@@ -179,32 +249,27 @@ function RelatedBooks({
   setNavigate,
   setItemToDisplay,
   setPageItems,
+  setItemAddedToCart,
+  itemAddedToCart,
+  setCartItems,
+  cartItems,
+  value,
+  setValue,
 }) {
   if (!pageItems || pageItems.length === 0) {
     return <div className="itemsContainer">No related books available.</div>;
   }
-  pageItems.length = 5;
 
-  // console.log(pageItems);
-  // console.log(pageItems);
+  const newOne = [...pageItems];
+  newOne.length = 5;
   return (
     <div className="ItemsContainer">
-      {pageItems.map((product, index) => {
+      {newOne.map((product, index) => {
+        // setValue(product.quantity);
+
         return (
-          <div className="allItems">
-            <Link
-              key={product.title || index} // Fallback to `index` if `title` is missing
-              to="/product"
-              onClick={() => {
-                setItemToDisplay(product); // Pass a single product
-                window.localStorage.setItem("product", JSON.stringify(product));
-                // window.location.reload();
-                window.scrollTo({
-                  top: 0,
-                  behavior: "smooth", // Smooth scrolling
-                });
-              }}
-            >
+          <div className="allItems" key={index}>
+            <Link>
               <div className="card">
                 <div className="cover">
                   <div className="pag">
@@ -215,31 +280,92 @@ function RelatedBooks({
                       <HeartOutlined />
                     </span>
                   </div>
-                  <img
-                    className="img"
-                    src={product.img}
-                    alt={product.title || "Product"}
-                  />
+                  <Link
+                    key={product.title || index} // Fallback to `index` if `title` is missing
+                    to="/product"
+                    onClick={() => {
+                      setItemToDisplay(product); // Pass a single product
+                      window.localStorage.setItem(
+                        "product",
+                        JSON.stringify(product)
+                      );
+                      // window.location.reload();
+                      window.scrollTo({
+                        top: 0,
+                        behavior: "smooth", // Smooth scrolling
+                      });
+                    }}
+                  >
+                    <img
+                      className="img"
+                      src={product.img}
+                      alt={product.title || "Product"}
+                    />
+                  </Link>
                 </div>
                 <div className="details">
-                  <div className="h3">{product.title || "Untitled"}</div>
-                  <span className="price">
-                    {product.discount ? (
-                      <span>
-                        <span className="oldPrice">{product.price} EGP</span>
-                        <span className="newPrice">
-                          {(
-                            product.price -
-                            (product.discoutRate / 100) * product.price
-                          ).toFixed(0)}{" "}
-                          EGP
+                  <Link
+                    key={product.title || index} // Fallback to `index` if `title` is missing
+                    to="/product"
+                    onClick={() => {
+                      setItemToDisplay(product); // Pass a single product
+                      window.localStorage.setItem(
+                        "product",
+                        JSON.stringify(product)
+                      );
+                      // window.location.reload();
+                      window.scrollTo({
+                        top: 0,
+                        behavior: "smooth", // Smooth scrolling
+                      });
+                    }}
+                  >
+                    <div className="h3">{product.title}</div>
+                    <span className="price">
+                      {product.discount ? (
+                        <span>
+                          <sapn className="oldPrice">{product.price} EGP</sapn>
+                          <span className="newPrice">
+                            {(
+                              product.price -
+                              (product.discoutRate / 100) * product.price
+                            ).toFixed(0)}{" "}
+                            EGP
+                          </span>
                         </span>
-                      </span>
-                    ) : (
-                      <span className="newPrice">{product.price} EGP</span>
-                    )}
-                  </span>
-                  <button className="btn">Add to Cart</button>
+                      ) : (
+                        <span className="newPrice">{product.price} EGP</span>
+                      )}
+                    </span>
+                  </Link>
+                  <button
+                    className="btn"
+                    onClick={() => {
+                      window.scrollTo({
+                        top: 0,
+                        behavior: "smooth", // Smooth scrolling
+                      });
+                      const newCartItems = [...cartItems];
+                      const itemExists = newCartItems.some(
+                        (item) => item.title === product.title
+                      );
+
+                      if (!itemExists) {
+                        newCartItems.push({ ...product, quantity: 1 });
+                        window.localStorage.setItem(
+                          "cartItems",
+                          JSON.stringify(newCartItems)
+                        );
+                        setCartItems(newCartItems);
+                        setItemAddedToCart("done");
+                      } else {
+                        setItemAddedToCart("not");
+                      }
+                      // console.log(cartItems);
+                    }}
+                  >
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             </Link>
@@ -248,80 +374,4 @@ function RelatedBooks({
       })}
     </div>
   );
-  // if (!pageItems || pageItems.length === 0) {
-  //   return <div className="itemsContainer">No related books available.</div>;
-  // }
-  // pageItems.length = 5;
-  // return (
-  //   <div className="itemsContainer">
-  //     <List
-  //       className="allItems"
-  //       grid={{
-  //         gutter: 10,
-  //         xs: 2,
-  //         sm: 3,
-  //         md: 3,
-  //         lg: 4,
-  //         xl: 5,
-  //         xxl: 5,
-  //       }}
-  //       dataSource={pageItems.filter(Boolean)} // Remove any `null` or `undefined` items
-  //       renderItem={(product, index) => {
-  //         if (!product || !product.title) {
-  //           console.warn("Invalid product:", product);
-  //           return null; // Skip invalid entries
-  //         }
-  //         return (
-  //           <Link
-  //             key={product.title || index} // Fallback to `index` if `title` is missing
-  //             to="/product"
-  //             onClick={() => {
-  //               setItemToDisplay(product); // Pass a single product
-  //               window.localStorage.setItem("product", JSON.stringify(product));
-  //               window.location.reload();
-  //             }}
-  //           >
-  //             <div className="card">
-  //               <div className="cover">
-  //                 <div className="pag">
-  //                   {product.discount && (
-  //                     <span className="badge">-{product.discoutRate}%</span>
-  //                   )}
-  //                   <span className="fav">
-  //                     <HeartOutlined />
-  //                   </span>
-  //                 </div>
-  //                 <img
-  //                   className="img"
-  //                   src={product.img}
-  //                   alt={product.title || "Product"}
-  //                 />
-  //               </div>
-  //               <div className="details">
-  //                 <div className="h3">{product.title || "Untitled"}</div>
-  //                 <span className="price">
-  //                   {product.discount ? (
-  //                     <span>
-  //                       <span className="oldPrice">{product.price} EGP</span>
-  //                       <span className="newPrice">
-  //                         {(
-  //                           product.price -
-  //                           (product.discoutRate / 100) * product.price
-  //                         ).toFixed(0)}{" "}
-  //                         EGP
-  //                       </span>
-  //                     </span>
-  //                   ) : (
-  //                     <span className="newPrice">{product.price} EGP</span>
-  //                   )}
-  //                 </span>
-  //                 <button className="btn">Add to Cart</button>
-  //               </div>
-  //             </div>
-  //           </Link>
-  //         );
-  //       }}
-  //     />
-  //   </div>
-  // );
 }
