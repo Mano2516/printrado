@@ -2,7 +2,7 @@ import { Alert, Breadcrumb, Collapse, Divider, List } from "antd";
 import "../css/displayItemPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { HeartOutlined } from "@ant-design/icons";
+import { CheckOutlined, HeartOutlined } from "@ant-design/icons";
 export default function DisplayItem({
   itemToDisplay,
   setNavigate,
@@ -13,6 +13,8 @@ export default function DisplayItem({
   itemAddedToCart,
   setCartItems,
   cartItems,
+  setWishlist,
+  wishlist,
 }) {
   var product;
   if (localStorage.getItem("product")) {
@@ -50,6 +52,16 @@ export default function DisplayItem({
       return () => clearTimeout(timer0);
     }
   }, [itemAddedToCart]);
+  useEffect(() => {
+    try {
+      const savedWishlist =
+        JSON.parse(localStorage.getItem("wishlistItems")) || [];
+      setWishlist(savedWishlist);
+    } catch (error) {
+      console.error("Failed to parse cart items from localStorage:", error);
+      setWishlist([]);
+    }
+  }, []);
   const navigate = useNavigate();
   const [value, setValue] = useState(product.quantity);
   const [choose, setChoose] = useState("des");
@@ -70,6 +82,7 @@ export default function DisplayItem({
       ),
     },
   ];
+  var exist = [];
   return (
     <div className="mainContainer">
       <div className="cont">
@@ -176,12 +189,43 @@ export default function DisplayItem({
                 Add to cart
               </button>
               <button className="buyNow">Buy now</button>
-              <div className="favEle">
-                <span className="favIcon">
-                  <HeartOutlined />
-                </span>
-                <span className="favText">Add to wishlist</span>
-              </div>
+              <span
+                className="fav"
+                onClick={() => {
+                  const newFavtItems = [...wishlist];
+                  const itemExists = newFavtItems.some(
+                    (item) => item.title === product.title
+                  );
+                  if (!itemExists) {
+                    newFavtItems.push({ ...product });
+                    window.localStorage.setItem(
+                      "wishlistItems",
+                      JSON.stringify(newFavtItems)
+                    );
+                    setWishlist(newFavtItems);
+                  }
+                }}
+              >
+                {
+                  (exist = wishlist.some(
+                    (item) => item.title === product.title
+                  ) ? (
+                    <div className="favEle">
+                      <span className="favIcon">
+                        <CheckOutlined />
+                      </span>
+                      <span className="favText">Browse wishlist</span>
+                    </div>
+                  ) : (
+                    <div className="favEle">
+                      <span className="favIcon">
+                        <HeartOutlined />
+                      </span>
+                      <span className="favText">Add to wishlist</span>
+                    </div>
+                  ))
+                }
+              </span>
             </div>
             <Divider />
             <div className="more">
@@ -238,6 +282,8 @@ export default function DisplayItem({
           cartItems={cartItems}
           value={value}
           setValue={setValue}
+          wishlist={wishlist}
+          setWishlist={setWishlist}
         />
       </div>
     </div>
@@ -255,6 +301,8 @@ function RelatedBooks({
   cartItems,
   value,
   setValue,
+  wishlist,
+  setWishlist,
 }) {
   if (!pageItems || pageItems.length === 0) {
     return <div className="itemsContainer">No related books available.</div>;
@@ -266,7 +314,7 @@ function RelatedBooks({
     <div className="ItemsContainer">
       {newOne.map((product, index) => {
         // setValue(product.quantity);
-
+        var exist = [];
         return (
           <div className="allItems" key={index}>
             <Link>
@@ -276,8 +324,32 @@ function RelatedBooks({
                     {product.discount && (
                       <span className="badge">-{product.discoutRate}%</span>
                     )}
-                    <span className="fav">
-                      <HeartOutlined />
+                    <span
+                      className="fav"
+                      onClick={() => {
+                        const newFavtItems = [...wishlist];
+                        const itemExists = newFavtItems.some(
+                          (item) => item.title === product.title
+                        );
+                        if (!itemExists) {
+                          newFavtItems.push({ ...product });
+                          window.localStorage.setItem(
+                            "wishlistItems",
+                            JSON.stringify(newFavtItems)
+                          );
+                          setWishlist(newFavtItems);
+                        }
+                      }}
+                    >
+                      {
+                        (exist = wishlist.some(
+                          (item) => item.title === product.title
+                        ) ? (
+                          <CheckOutlined />
+                        ) : (
+                          <HeartOutlined />
+                        ))
+                      }
                     </span>
                   </div>
                   <Link

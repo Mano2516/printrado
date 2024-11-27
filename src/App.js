@@ -11,6 +11,7 @@ function App() {
   const [itemToDisplay, setItemToDisplay] = useState([]);
   const [pageItems, setPageItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
   return (
     <div style={{ minHeight: "100vh" }}>
       <Header
@@ -22,6 +23,8 @@ function App() {
         itemToDisplay={itemToDisplay}
         cartItems={cartItems}
         setCartItems={setCartItems}
+        wishlist={wishlist}
+        setWishlist={setWishlist}
       />
       <PageContent
         navigate={navigate}
@@ -34,6 +37,8 @@ function App() {
         setPageItems={setPageItems}
         cartItems={cartItems}
         setCartItems={setCartItems}
+        wishlist={wishlist}
+        setWishlist={setWishlist}
       />
       <Footer
         navigate={navigate}

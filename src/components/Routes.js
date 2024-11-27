@@ -11,6 +11,7 @@ import TechPage from "../Pages/Tech";
 import ManagmentPage from "../Pages/Managment";
 import SelfPage from "../Pages/Self";
 import { useState } from "react";
+import Wishlist from "./Wishlist";
 
 export default function AppRoutes({
   navigate,
@@ -23,6 +24,8 @@ export default function AppRoutes({
   pageItems,
   cartItems,
   setCartItems,
+  wishlist,
+  setWishlist,
 }) {
   const [itemAddedToCart, setItemAddedToCart] = useState("");
   return (
@@ -44,6 +47,8 @@ export default function AppRoutes({
             setCartItems={setCartItems}
             itemAddedToCart={itemAddedToCart}
             setItemAddedToCart={setItemAddedToCart}
+            wishlist={wishlist}
+            setWishlist={setWishlist}
           />
         }
       />
@@ -64,6 +69,8 @@ export default function AppRoutes({
             setCartItems={setCartItems}
             itemAddedToCart={itemAddedToCart}
             setItemAddedToCart={setItemAddedToCart}
+            wishlist={wishlist}
+            setWishlist={setWishlist}
           />
         }
       />
@@ -84,6 +91,8 @@ export default function AppRoutes({
             setCartItems={setCartItems}
             itemAddedToCart={itemAddedToCart}
             setItemAddedToCart={setItemAddedToCart}
+            wishlist={wishlist}
+            setWishlist={setWishlist}
           />
         }
       />
@@ -104,6 +113,8 @@ export default function AppRoutes({
             setCartItems={setCartItems}
             itemAddedToCart={itemAddedToCart}
             setItemAddedToCart={setItemAddedToCart}
+            wishlist={wishlist}
+            setWishlist={setWishlist}
           />
         }
       />
@@ -124,6 +135,8 @@ export default function AppRoutes({
             setCartItems={setCartItems}
             itemAddedToCart={itemAddedToCart}
             setItemAddedToCart={setItemAddedToCart}
+            wishlist={wishlist}
+            setWishlist={setWishlist}
           />
         }
       />
@@ -144,6 +157,8 @@ export default function AppRoutes({
             setCartItems={setCartItems}
             itemAddedToCart={itemAddedToCart}
             setItemAddedToCart={setItemAddedToCart}
+            wishlist={wishlist}
+            setWishlist={setWishlist}
           />
         }
       />
@@ -164,6 +179,8 @@ export default function AppRoutes({
             setCartItems={setCartItems}
             itemAddedToCart={itemAddedToCart}
             setItemAddedToCart={setItemAddedToCart}
+            wishlist={wishlist}
+            setWishlist={setWishlist}
           />
         }
       />
@@ -195,6 +212,22 @@ export default function AppRoutes({
             itemAddedToCart={itemAddedToCart}
             setItemAddedToCart={setItemAddedToCart}
             setCartItems={setCartItems}
+            wishlist={wishlist}
+            setWishlist={setWishlist}
+          />
+        }
+      />
+      <Route
+        path="/wishlist"
+        element={
+          <Wishlist
+            wishlist={wishlist}
+            setWishlist={setWishlist}
+            cartItems={cartItems}
+            itemAddedToCart={itemAddedToCart}
+            setItemAddedToCart={setItemAddedToCart}
+            setCartItems={setCartItems}
+            setNavigate={setNavigate}
           />
         }
       />

@@ -39,6 +39,8 @@ export default function Header({
   elements,
   cartItems,
   setCartItems,
+  setWishlist,
+  wishlist,
 }) {
   const [toogleDrawer, setToogleDrawer] = useState(false);
   const [loginDrawer, setLoginDrawer] = useState(false);
@@ -104,9 +106,16 @@ export default function Header({
             />
           </div>
           <div className="icons">
-            <div className="loved">
-              <HeartOutlined />
-            </div>
+            <Link to="/wishlist">
+              <div
+                className="loved"
+                onClick={() => {
+                  setNavigate("");
+                }}
+              >
+                <HeartOutlined />
+              </div>
+            </Link>
             <button
               className="login"
               onClick={() => {
@@ -302,6 +311,7 @@ export default function Header({
         setOpenLogin={setLoginDrawer}
         setNavigate={setNavigate}
         setCart={setCartDrawer}
+        cartItems={cartItems}
       />
       <Cart
         openCart={cartDrawer}
@@ -542,7 +552,7 @@ function LoginDrawer({ open, isOpen, setNavigate }) {
   );
 }
 
-function Nav({ openLogin, setOpenLogin, setCart }) {
+function Nav({ openLogin, setOpenLogin, setCart, cartItems, setNavigate }) {
   return (
     <div className="navigationContainer">
       <div className="parts">
@@ -556,17 +566,24 @@ function Nav({ openLogin, setOpenLogin, setCart }) {
           <FilterOutlined />
           <div className="txt">Filters</div>
         </div> */}
-        <div className="part">
-          <HeartOutlined />
-          <div className="txt">Wishlist</div>
-        </div>
+        <Link to="/wishlist">
+          <div
+            className="part"
+            onClick={() => {
+              setNavigate("");
+            }}
+          >
+            <HeartOutlined />
+            <div className="txt">Wishlist</div>
+          </div>
+        </Link>
         <div
           onClick={() => {
             setCart(true);
           }}
         >
           <Badge
-            count={5}
+            count={cartItems.length}
             style={{ color: "white", backgroundColor: "rgb(237, 156, 75)" }}
           >
             <ShoppingCartOutlined

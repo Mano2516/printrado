@@ -1,0 +1,27 @@
+@use "variables.scss" as *;
+.wishlist {
+  max-width: 100%;
+  margin-top: -28px;
+  .title {
+    background-color: #aeb6a1;
+    max-width: 100%;
+    height: 140px;
+    color: #fff;
+    .ele {
+      width: 80%;
+      margin: 0 auto;
+      .heading {
+        padding: 10px 0 0;
+        font-family: $title-font-family;
+        color: #fff;
+        font-size: 44px;
+        font-weight: 600;
+        max-width: 100%;
+      }
+      .ant-breadcrumb-link {
+        cursor: pointer;
+        color: #fff;
+      }
+    }
+  }
+}

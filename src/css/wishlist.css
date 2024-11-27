@@ -1,0 +1,26 @@
+.wishlist {
+  max-width: 100%;
+  margin-top: -28px;
+}
+.wishlist .title {
+  background-color: #aeb6a1;
+  max-width: 100%;
+  height: 140px;
+  color: #fff;
+}
+.wishlist .title .ele {
+  width: 80%;
+  margin: 0 auto;
+}
+.wishlist .title .ele .heading {
+  padding: 10px 0 0;
+  font-family: "Urbanist", Arial, Helvetica, sans-serif;
+  color: #fff;
+  font-size: 44px;
+  font-weight: 600;
+  max-width: 100%;
+}
+.wishlist .title .ele .ant-breadcrumb-link {
+  cursor: pointer;
+  color: #fff;
+}

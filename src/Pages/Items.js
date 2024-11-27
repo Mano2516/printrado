@@ -1,4 +1,4 @@
-import { HeartOutlined } from "@ant-design/icons";
+import { CheckOutlined, HeartOutlined } from "@ant-design/icons";
 import { Alert, List } from "antd";
 import { useEffect, useState } from "react";
 import "../css/items.css";
@@ -15,6 +15,8 @@ export default function Items({
   cartItems,
   setCartItems,
   setItemAddedToCart,
+  setWishlist,
+  wishlist,
 }) {
   const [items, setItems] = useState(it);
 
@@ -24,10 +26,21 @@ export default function Items({
       setCartItems(savedCart);
     } catch (error) {
       console.error("Failed to parse cart items from localStorage:", error);
-      setCartItems([]); // Default to an empty cart
+      setCartItems([]);
     }
   }, []);
-  // window.localStorage.clear();
+
+  useEffect(() => {
+    try {
+      const savedWishlist =
+        JSON.parse(localStorage.getItem("wishlistItems")) || [];
+      setWishlist(savedWishlist);
+    } catch (error) {
+      console.error("Failed to parse cart items from localStorage:", error);
+      setWishlist([]);
+    }
+  }, []);
+
   return (
     <div className="mainContainer">
       <div className="Content">
@@ -38,7 +51,6 @@ export default function Items({
             align: "center",
             total: items.length,
           }}
-          // itemLayout="horizontal"
           className="allItems"
           grid={{
             gutter: 10,
@@ -51,6 +63,7 @@ export default function Items({
           }}
           dataSource={items}
           renderItem={(product) => {
+            var exist = [];
             return (
               <Link>
                 <div className="card">
@@ -59,8 +72,32 @@ export default function Items({
                       {product.discount && (
                         <span className="badge">-{product.discoutRate}%</span>
                       )}
-                      <span className="fav">
-                        <HeartOutlined />
+                      <span
+                        className="fav"
+                        onClick={() => {
+                          const newFavtItems = [...wishlist];
+                          const itemExists = newFavtItems.some(
+                            (item) => item.title === product.title
+                          );
+                          if (!itemExists) {
+                            newFavtItems.push({ ...product });
+                            window.localStorage.setItem(
+                              "wishlistItems",
+                              JSON.stringify(newFavtItems)
+                            );
+                            setWishlist(newFavtItems);
+                          }
+                        }}
+                      >
+                        {
+                          (exist = wishlist.some(
+                            (item) => item.title === product.title
+                          ) ? (
+                            <CheckOutlined />
+                          ) : (
+                            <HeartOutlined />
+                          ))
+                        }
                       </span>
                     </div>
                     <Link
@@ -91,8 +128,6 @@ export default function Items({
                         setNavigate(nav);
                         const item = JSON.stringify(product);
                         window.localStorage.setItem("product", item);
-                        // console.log(item);
-                        // console.log(window.localStorage.getItem("product"));
                       }}
                     >
                       <div className="h3">{product.title}</div>

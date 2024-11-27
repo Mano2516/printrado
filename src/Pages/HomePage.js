@@ -16,6 +16,8 @@ export default function HomePage({
   setCartItems,
   setItemAddedToCart,
   itemAddedToCart,
+  setWishlist,
+  wishlist,
 }) {
   setPageItems(HomePageElements);
   const [showAlert, setShowAlert] = useState(false);
@@ -82,6 +84,8 @@ export default function HomePage({
         cartItems={cartItems}
         setCartItems={setCartItems}
         setItemAddedToCart={setItemAddedToCart}
+        wishlist={wishlist}
+        setWishlist={setWishlist}
         // pageItems={pageItems}
       />
     </div>

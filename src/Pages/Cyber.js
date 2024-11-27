@@ -16,6 +16,8 @@ export default function CyberPage({
   setCartItems,
   itemAddedToCart,
   setItemAddedToCart,
+  setWishlist,
+  wishlist,
 }) {
   // const [eles, setEles] = useState(HomePageElements);
   setPageItems(CyberBooks);
@@ -83,6 +85,8 @@ export default function CyberPage({
         cartItems={cartItems}
         setCartItems={setCartItems}
         setItemAddedToCart={setItemAddedToCart}
+        wishlist={wishlist}
+        setWishlist={setWishlist}
       />
     </div>
   );

@@ -16,6 +16,8 @@ export default function SelfPage({
   setCartItems,
   itemAddedToCart,
   setItemAddedToCart,
+  setWishlist,
+  wishlist,
 }) {
   // const [eles, setEles] = useState(HomePageElements);
   setPageItems(SelfBooks);
@@ -83,6 +85,8 @@ export default function SelfPage({
         cartItems={cartItems}
         setCartItems={setCartItems}
         setItemAddedToCart={setItemAddedToCart}
+        wishlist={wishlist}
+        setWishlist={setWishlist}
       />
     </div>
   );

@@ -16,6 +16,8 @@ export default function ManagmentPage({
   setCartItems,
   itemAddedToCart,
   setItemAddedToCart,
+  setWishlist,
+  wishlist,
 }) {
   // const [eles, setEles] = useState(HomePageElements);
   const [showAlert, setShowAlert] = useState(false);
@@ -83,6 +85,8 @@ export default function ManagmentPage({
         cartItems={cartItems}
         setCartItems={setCartItems}
         setItemAddedToCart={setItemAddedToCart}
+        wishlist={wishlist}
+        setWishlist={setWishlist}
       />
     </div>
   );
