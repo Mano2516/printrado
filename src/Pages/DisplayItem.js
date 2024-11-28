@@ -214,7 +214,14 @@ export default function DisplayItem({
                       <span className="favIcon">
                         <CheckOutlined />
                       </span>
-                      <span className="favText">Browse wishlist</span>
+                      <span
+                        className="favText"
+                        onClick={() => {
+                          navigate("/wishlist");
+                        }}
+                      >
+                        Browse wishlist
+                      </span>
                     </div>
                   ) : (
                     <div className="favEle">
