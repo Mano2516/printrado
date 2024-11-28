@@ -12,8 +12,23 @@ export default function Wishlist({
   setCartItems,
   setNavigate,
   setItemToDisplay,
+  search,
+  setSearch,
 }) {
   const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (!search) {
+  //     setWishlist(wishlist || []);
+  //   } else {
+  //     const filteredItems = (wishlist || []).filter((element) => {
+  //       return (
+  //         element.title &&
+  //         element.title.toLowerCase().includes(search.toLowerCase())
+  //       );
+  //     });
+  //     setWishlist(filteredItems);
+  //   }
+  // }, [search, wishlist]);
   useEffect(() => {
     try {
       const savedWishlist =

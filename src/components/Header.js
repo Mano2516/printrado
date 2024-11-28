@@ -655,13 +655,15 @@ function Cart({ openCart, setIsOpen, cartItems, setCartItems }) {
           <DisplayItemsInCart
             cartItems={cartItems}
             setCartItems={setCartItems}
+            setIsOpen={setIsOpen}
           />
         )}
       </Drawer>
     </div>
   );
 }
-function DisplayItemsInCart({ cartItems, setCartItems }) {
+function DisplayItemsInCart({ cartItems, setCartItems, setIsOpen }) {
+  const navigate = useNavigate();
   return (
     <div className="all">
       <div className="Elements">
@@ -778,7 +780,6 @@ function DisplayItemsInCart({ cartItems, setCartItems }) {
               .toFixed(0) >= 2200 && (
               <>Your order qualifies for free shipping!</>
             )}
-
             <Progress
               percent={
                 (cartItems
@@ -802,8 +803,24 @@ function DisplayItemsInCart({ cartItems, setCartItems }) {
             />
           </div>
           <div className="actionBtns">
-            <button className="view">View cart</button>
-            <button className="check">Checkout</button>
+            <button
+              className="view"
+              onClick={() => {
+                navigate("/cart");
+                setIsOpen(false);
+              }}
+            >
+              View cart
+            </button>
+            <button
+              className="check"
+              onClick={() => {
+                // navigate("/checkout");
+                // setIsOpen(false);
+              }}
+            >
+              Checkout
+            </button>
           </div>
         </div>
       </div>

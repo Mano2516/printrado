@@ -7,7 +7,7 @@ import { scrollTo } from "react-scroll/modules/mixins/scroller";
 export default function Login({ setNavigate }) {
   const navigate = useNavigate();
   return (
-    <div className="mainContainer">
+    <div className="MainContainer">
       <div className="title">
         <div className="ele">
           <Typography.Title className="heading">My Account</Typography.Title>
@@ -35,7 +35,7 @@ export default function Login({ setNavigate }) {
 function Content() {
   const [page, setPage] = useState("signup");
   return (
-    <div className="cont">
+    <div className="formContent">
       {page === "login" && <LoginForm />}
       {page === "signup" && <SignUpForm />}
       <Divider type="vertical" style={{ height: 300 }} className="max" />
@@ -141,7 +141,7 @@ function SignUpForm() {
           <Input className="field" />
         </Form.Item>
       </Form>
-      <div className="content">
+      <div className="regContent">
         <div className="top">
           A link to set a new password will be sent to your email address.
         </div>
@@ -162,7 +162,7 @@ function MainContent({ btn, setBtn }) {
       <div className="tit" style={{ textTransform: "uppercase" }}>
         Login
       </div>
-      <div className="cont">
+      <div className="mainCont">
         Registering for this site allows you to access your order status and
         history. Just fill in the fields below, and we'll get a new account set
         up for you in no time. We will only ask you for information necessary to

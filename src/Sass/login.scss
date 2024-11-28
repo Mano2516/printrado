@@ -1,7 +1,5 @@
 @use "variables.scss" as *;
-.mainContainer {
-  max-width: 100%;
-  margin-top: -28px;
+.MainContainer {
   .title {
     background-color: #aeb6a1;
     max-width: 100%;
@@ -24,7 +22,7 @@
       }
     }
   }
-  .cont {
+  .formContent {
     max-width: 80%;
     margin: 0 auto;
     display: flex;
@@ -64,7 +62,7 @@
     font-weight: 600;
     text-transform: capitalize;
   }
-  .cont {
+  .mainCont {
     font-size: 15px;
     color: #777;
     font-family: $text-font;
@@ -126,7 +124,7 @@
       border-color: #ddd;
     }
   }
-  .content {
+  .regContent {
     display: flex;
     flex-direction: column;
     gap: 20px;

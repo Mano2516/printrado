@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function About({ setNavigate }) {
   const navigate = useNavigate();
   return (
-    <div className="mainContainer">
+    <div className="MainContainer">
       <div className="title">
         <div className="ele">
           <Typography.Title className="heading"> About us</Typography.Title>

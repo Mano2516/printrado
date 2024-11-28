@@ -12,6 +12,8 @@ import ManagmentPage from "../Pages/Managment";
 import SelfPage from "../Pages/Self";
 import { useState } from "react";
 import Wishlist from "./Wishlist";
+import Cart from "../Pages/CartPage";
+import Checkout from "../Pages/Checkout";
 
 export default function AppRoutes({
   navigate,
@@ -246,8 +248,18 @@ export default function AppRoutes({
             setCartItems={setCartItems}
             setNavigate={setNavigate}
             setItemToDisplay={setItemToDisplay}
+            search={search}
+            setSearch={setSearch}
           />
         }
+      />
+      <Route
+        path="/cart"
+        element={<Cart cartItems={cartItems} setCartItems={setCartItems} />}
+      />
+      <Route
+        path="/checkout"
+        element={<Checkout cartItems={cartItems} setCartItems={setCartItems} />}
       />
     </Routes>
   );

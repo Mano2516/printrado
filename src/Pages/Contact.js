@@ -8,7 +8,7 @@ export default function Contact({ setNavigate, itemToDisplay }) {
   const navigate = useNavigate();
 
   return (
-    <div className="mainContainer">
+    <div className="MainContainer">
       <div className="title">
         <div className="ele">
           <Typography.Title className="heading">Contact us</Typography.Title>

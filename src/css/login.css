@@ -1,18 +1,14 @@
-.mainContainer {
-  max-width: 100%;
-  margin-top: -28px;
-}
-.mainContainer .title {
+.MainContainer .title {
   background-color: #aeb6a1;
   max-width: 100%;
   height: 140px;
   color: #fff;
 }
-.mainContainer .title .ele {
+.MainContainer .title .ele {
   width: 80%;
   margin: 0 auto;
 }
-.mainContainer .title .ele .heading {
+.MainContainer .title .ele .heading {
   padding: 10px 0 0;
   font-family: "Urbanist", Arial, Helvetica, sans-serif;
   color: #fff;
@@ -20,11 +16,11 @@
   font-weight: 600;
   max-width: 100%;
 }
-.mainContainer .title .ele .ant-breadcrumb-link {
+.MainContainer .title .ele .ant-breadcrumb-link {
   cursor: pointer;
   color: #fff;
 }
-.mainContainer .cont {
+.MainContainer .formContent {
   max-width: 80%;
   margin: 0 auto;
   display: -webkit-box;
@@ -43,7 +39,7 @@
   padding: 60px 0;
 }
 @media (max-width: 768px) {
-  .mainContainer .cont {
+  .MainContainer .formContent {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -52,12 +48,12 @@
   }
 }
 @media (max-width: 786px) {
-  .mainContainer .cont .max {
+  .MainContainer .formContent .max {
     display: none;
   }
 }
 @media (min-width: 787px) {
-  .mainContainer .cont .min {
+  .MainContainer .formContent .min {
     display: none;
   }
 }
@@ -80,7 +76,7 @@
   font-weight: 600;
   text-transform: capitalize;
 }
-.right .cont {
+.right .mainCont {
   font-size: 15px;
   color: #777;
   font-family: "Work Sans", Arial, Helvetica, sans-serif;
@@ -88,7 +84,7 @@
   word-spacing: 1px;
 }
 @media (max-width: 786px) {
-  .right .cont {
+  .right .mainCont {
     max-width: 300px;
     text-align: center;
   }
@@ -148,7 +144,7 @@
 .registerForm .field:focus-within {
   border-color: #ddd;
 }
-.registerForm .content {
+.registerForm .regContent {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -166,7 +162,7 @@
   width: 500px;
 }
 @media (max-width: 768px) {
-  .registerForm .content {
+  .registerForm .regContent {
     max-width: 300px;
     text-align: center;
   }

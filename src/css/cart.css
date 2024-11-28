@@ -1,0 +1,388 @@
+.mainContainer {
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.mainContainer .content {
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media (max-width: 992px) {
+  .mainContainer .content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 20px;
+  }
+}
+.mainContainer .content .left {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  max-width: 100%;
+}
+.mainContainer .content .left .remain {
+  padding-top: 20px;
+  font-size: 15px;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  width: 100%;
+  color: #777;
+}
+.mainContainer .content .left .remain .value {
+  color: rgb(237, 156, 75);
+  font-weight: 600;
+  font-size: 16px;
+}
+@media (max-width: 768px) {
+  .mainContainer .content .left .remain {
+    -webkit-box-flex: 100%;
+        -ms-flex: 100%;
+            flex: 100%;
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .mainContainer .content .left .ItemsTable {
+    display: none;
+  }
+}
+.mainContainer .content .left .ItemsTable .prod {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+}
+.mainContainer .content .left .ItemsTable .prod .removeItem {
+  cursor: pointer;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.mainContainer .content .left .ItemsTable .prod .itemImg > img {
+  width: 90px;
+}
+.mainContainer .content .left .ItemsTable .prod .itemName {
+  font-size: 14px;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  color: #333;
+  padding: 0 20px;
+  max-width: 200px;
+}
+.mainContainer .content .left .ItemsTable .price,
+.mainContainer .content .left .ItemsTable .quantity {
+  font-size: 15px;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  color: #767676;
+  padding: 0 20px;
+}
+.mainContainer .content .left .ItemsTable .total {
+  font-size: 16px;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  color: rgb(237, 156, 75);
+  font-weight: 600;
+  padding: 0 20px;
+}
+.mainContainer .content .left .small {
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .mainContainer .content .left .small {
+    display: block;
+  }
+}
+@media (min-width: 767px) {
+  .mainContainer .content .left .small {
+    display: none;
+  }
+}
+.mainContainer .content .left .small .samllItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.mainContainer .content .left .small .samllItem .sImg > img {
+  width: 90px;
+}
+.mainContainer .content .left .small .samllItem .sDetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 6px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 120px;
+}
+.mainContainer .content .left .small .samllItem .sDetails .sTitle,
+.mainContainer .content .left .small .samllItem .sDetails .sPrice,
+.mainContainer .content .left .small .samllItem .sDetails .sQuantity {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #ddd;
+  color: #777;
+  font-size: 15px;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+}
+.mainContainer .content .left .small .samllItem .sDetails .total {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 5px;
+  color: #777;
+  font-size: 15px;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+}
+.mainContainer .content .left .small .samllItem .sDetails .total .val {
+  color: rgb(237, 156, 75);
+  font-weight: 600;
+  font-size: 16px;
+}
+.mainContainer .content .left .copun {
+  padding: 0 20px;
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 10px;
+}
+.mainContainer .content .left .copun > input {
+  width: 150px;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 35px;
+}
+.mainContainer .content .left .copun > input:focus {
+  outline: none;
+}
+.mainContainer .content .left .copun > button {
+  background-color: rgb(237, 156, 75);
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 35px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.mainContainer .content .left .copun > button:hover {
+  background-color: #e8831d;
+}
+.mainContainer .content .right {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+.mainContainer .content .right .information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+  gap: 6px;
+}
+.mainContainer .content .right .information .secTitle {
+  font-size: 24px;
+  font-family: "Urbanist", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+.mainContainer .content .right .information .total {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+.mainContainer .content .right .information .total .pri {
+  font-size: 15px;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  color: #777;
+}
+.mainContainer .content .right .information .shipping {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+.mainContainer .content .right .information .shipping .places {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 4px;
+  width: 50%;
+}
+.mainContainer .content .right .information .shipping .places .val {
+  color: rgb(237, 156, 75);
+  font-size: 15px;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+}
+.mainContainer .content .right .information .shipping .places .cairo {
+  font-size: 15px;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  color: #777;
+}
+.mainContainer .content .right .information .titl {
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+}
+.mainContainer .content .right .information .goToCheck {
+  background-color: rgb(237, 156, 75);
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 35px;
+  margin-top: 5px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  font-family: 600;
+  font-size: 14px;
+}
+.mainContainer .content .right .information .goToCheck:hover {
+  background-color: #e8831d;
+}
+.mainContainer .content .right .lowInfo {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 6px;
+}
+.mainContainer .content .right .lowInfo .q {
+  color: #777;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: #777;
+}
+.mainContainer .content .right .lowInfo .q .t {
+  font-size: 16px;
+  font-family: "Urbanist", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px;
+}
+.mainContainer .content .right .lowInfo .q .a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 4px;
+  width: 300px;
+  margin: 0 auto;
+}
