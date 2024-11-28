@@ -353,18 +353,18 @@ function RelatedBooks({
                     </span>
                   </div>
                   <Link
-                    key={product.title || index} // Fallback to `index` if `title` is missing
+                    key={product.title || index}
                     to="/product"
                     onClick={() => {
-                      setItemToDisplay(product); // Pass a single product
+                      setItemToDisplay(product);
                       window.localStorage.setItem(
                         "product",
                         JSON.stringify(product)
                       );
-                      // window.location.reload();
+
                       window.scrollTo({
                         top: 0,
-                        behavior: "smooth", // Smooth scrolling
+                        behavior: "smooth",
                       });
                     }}
                   >
@@ -377,18 +377,18 @@ function RelatedBooks({
                 </div>
                 <div className="details">
                   <Link
-                    key={product.title || index} // Fallback to `index` if `title` is missing
+                    key={product.title || index}
                     to="/product"
                     onClick={() => {
-                      setItemToDisplay(product); // Pass a single product
+                      setItemToDisplay(product);
                       window.localStorage.setItem(
                         "product",
                         JSON.stringify(product)
                       );
-                      // window.location.reload();
+
                       window.scrollTo({
                         top: 0,
-                        behavior: "smooth", // Smooth scrolling
+                        behavior: "smooth",
                       });
                     }}
                   >
@@ -415,7 +415,7 @@ function RelatedBooks({
                     onClick={() => {
                       window.scrollTo({
                         top: 0,
-                        behavior: "smooth", // Smooth scrolling
+                        behavior: "smooth",
                       });
                       const newCartItems = [...cartItems];
                       const itemExists = newCartItems.some(

@@ -245,6 +245,7 @@ export default function AppRoutes({
             setItemAddedToCart={setItemAddedToCart}
             setCartItems={setCartItems}
             setNavigate={setNavigate}
+            setItemToDisplay={setItemToDisplay}
           />
         }
       />
