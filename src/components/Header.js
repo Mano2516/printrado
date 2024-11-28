@@ -32,6 +32,7 @@ import {
 // import Link from "antd/es/typography/Link";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { clear } from "@testing-library/user-event/dist/clear";
 export default function Header({
   navigate,
   setNavigate,
@@ -41,6 +42,8 @@ export default function Header({
   setCartItems,
   setWishlist,
   wishlist,
+  setSearch,
+  search,
 }) {
   const [toogleDrawer, setToogleDrawer] = useState(false);
   const [loginDrawer, setLoginDrawer] = useState(false);
@@ -100,6 +103,10 @@ export default function Header({
           </div>
           <div className="search">
             <Input
+              allowClear
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
               className="inField"
               prefix={<SearchOutlined />}
               placeholder="Search For Products"
@@ -288,6 +295,9 @@ export default function Header({
         </div>
         <div className="smallSearch">
           <Input
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
             className="smallInField"
             prefix={<SearchOutlined />}
             placeholder="Search For Products"

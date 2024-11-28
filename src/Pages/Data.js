@@ -18,6 +18,8 @@ export default function DataPage({
   setItemAddedToCart,
   setWishlist,
   wishlist,
+  setSearch,
+  search,
 }) {
   // const [eles, setEles] = useState(HomePageElements);
   setPageItems(DataBooks);
@@ -87,6 +89,8 @@ export default function DataPage({
         setItemAddedToCart={setItemAddedToCart}
         wishlist={wishlist}
         setWishlist={setWishlist}
+        search={search}
+        setSearch={setSearch}
       />
     </div>
   );

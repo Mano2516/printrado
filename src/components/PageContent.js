@@ -13,6 +13,8 @@ export default function PageContent({
   setCartItems,
   setWishlist,
   wishlist,
+  search,
+  setSearch,
 }) {
   return (
     <div style={{ maxWidth: "100%" }} className="container">
@@ -30,6 +32,8 @@ export default function PageContent({
           setCartItems={setCartItems}
           wishlist={wishlist}
           setWishlist={setWishlist}
+          search={search}
+          setSearch={setSearch}
         />
       </div>
     </div>

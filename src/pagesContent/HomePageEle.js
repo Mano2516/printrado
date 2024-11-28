@@ -187,14 +187,14 @@ export const HomePageElements = [
     img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2021/02/12233626/The-Lean-Product-Playbook-184x275.jpg.webp",
     quantity: 1,
   },
-  {
-    title: "The Hundred-Page Machine Learning Book",
-    price: 229,
-    discount: true,
-    discoutRate: 48,
-    img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2021/02/12234120/The-Hundred-Page-Machine-Learning-Book-205x253.png.webp",
-    quantity: 1,
-  },
+  // {
+  //   title: "The Hundred-Page Machine Learning Book",
+  //   price: 229,
+  //   discount: true,
+  //   discoutRate: 48,
+  //   img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2021/02/12234120/The-Hundred-Page-Machine-Learning-Book-205x253.png.webp",
+  //   quantity: 1,
+  // },
   {
     title: "Designing Distributed Systems",
     price: 239,

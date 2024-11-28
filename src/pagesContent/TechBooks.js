@@ -8,14 +8,14 @@ export const TechBooks = [
     quantity: 1,
   },
 
-  {
-    title: "You Don’t Know JS",
-    price: 269,
-    discount: true,
-    discoutRate: 30,
-    img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2021/02/12234403/You-Dont-Know-JS-205x120.jpg.webp",
-    quantity: 1,
-  },
+  // {
+  //   title: "You Don’t Know JS",
+  //   price: 269,
+  //   discount: true,
+  //   discoutRate: 30,
+  //   img: "https://printrado-media.s3.eu-central-1.amazonaws.com/wp-content/uploads/2021/02/12234403/You-Dont-Know-JS-205x120.jpg.webp",
+  //   quantity: 1,
+  // },
 
   {
     title: "Python Crash Course ",

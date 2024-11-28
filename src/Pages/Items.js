@@ -3,6 +3,7 @@ import { Alert, List } from "antd";
 import { useEffect, useState } from "react";
 import "../css/items.css";
 import { Link } from "react-router-dom";
+import { clear } from "@testing-library/user-event/dist/clear";
 
 export default function Items({
   elements,
@@ -17,8 +18,23 @@ export default function Items({
   setItemAddedToCart,
   setWishlist,
   wishlist,
+  setSearch,
+  search,
 }) {
   const [items, setItems] = useState(it);
+  useEffect(() => {
+    if (!search) {
+      setItems(it || []);
+    } else {
+      const filteredItems = (it || []).filter((element) => {
+        return (
+          element.title &&
+          element.title.toLowerCase().includes(search.toLowerCase())
+        );
+      });
+      setItems(filteredItems);
+    }
+  }, [search, it]);
 
   useEffect(() => {
     try {

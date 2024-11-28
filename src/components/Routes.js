@@ -26,8 +26,11 @@ export default function AppRoutes({
   setCartItems,
   wishlist,
   setWishlist,
+  setSearch,
+  search,
 }) {
   const [itemAddedToCart, setItemAddedToCart] = useState("");
+
   return (
     <Routes>
       <Route
@@ -49,6 +52,8 @@ export default function AppRoutes({
             setItemAddedToCart={setItemAddedToCart}
             wishlist={wishlist}
             setWishlist={setWishlist}
+            search={search}
+            setSearch={setSearch}
           />
         }
       />
@@ -71,6 +76,8 @@ export default function AppRoutes({
             setItemAddedToCart={setItemAddedToCart}
             wishlist={wishlist}
             setWishlist={setWishlist}
+            search={search}
+            setSearch={setSearch}
           />
         }
       />
@@ -93,6 +100,8 @@ export default function AppRoutes({
             setItemAddedToCart={setItemAddedToCart}
             wishlist={wishlist}
             setWishlist={setWishlist}
+            search={search}
+            setSearch={setSearch}
           />
         }
       />
@@ -115,6 +124,8 @@ export default function AppRoutes({
             setItemAddedToCart={setItemAddedToCart}
             wishlist={wishlist}
             setWishlist={setWishlist}
+            search={search}
+            setSearch={setSearch}
           />
         }
       />
@@ -137,6 +148,8 @@ export default function AppRoutes({
             setItemAddedToCart={setItemAddedToCart}
             wishlist={wishlist}
             setWishlist={setWishlist}
+            search={search}
+            setSearch={setSearch}
           />
         }
       />
@@ -159,6 +172,8 @@ export default function AppRoutes({
             setItemAddedToCart={setItemAddedToCart}
             wishlist={wishlist}
             setWishlist={setWishlist}
+            search={search}
+            setSearch={setSearch}
           />
         }
       />
@@ -181,6 +196,8 @@ export default function AppRoutes({
             setItemAddedToCart={setItemAddedToCart}
             wishlist={wishlist}
             setWishlist={setWishlist}
+            search={search}
+            setSearch={setSearch}
           />
         }
       />

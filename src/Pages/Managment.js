@@ -18,6 +18,8 @@ export default function ManagmentPage({
   setItemAddedToCart,
   setWishlist,
   wishlist,
+  setSearch,
+  search,
 }) {
   // const [eles, setEles] = useState(HomePageElements);
   const [showAlert, setShowAlert] = useState(false);
@@ -87,6 +89,8 @@ export default function ManagmentPage({
         setItemAddedToCart={setItemAddedToCart}
         wishlist={wishlist}
         setWishlist={setWishlist}
+        search={search}
+        setSearch={setSearch}
       />
     </div>
   );

@@ -18,6 +18,8 @@ export default function SoftWarePage({
   setItemAddedToCart,
   setWishlist,
   wishlist,
+  setSearch,
+  search,
 }) {
   // const [eles, setEles] = useState(HomePageElements);
   setPageItems(SoftwareBooks);
@@ -87,6 +89,8 @@ export default function SoftWarePage({
         setItemAddedToCart={setItemAddedToCart}
         wishlist={wishlist}
         setWishlist={setWishlist}
+        search={search}
+        setSearch={setSearch}
       />
     </div>
   );

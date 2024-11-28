@@ -18,6 +18,8 @@ export default function TechPage({
   setItemAddedToCart,
   setWishlist,
   wishlist,
+  setSearch,
+  search,
 }) {
   // const [eles, setEles] = useState(HomePageElements);
   const [showAlert, setShowAlert] = useState(false);
@@ -87,6 +89,8 @@ export default function TechPage({
         setItemAddedToCart={setItemAddedToCart}
         wishlist={wishlist}
         setWishlist={setWishlist}
+        search={search}
+        setSearch={setSearch}
       />
     </div>
   );
